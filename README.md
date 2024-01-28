@@ -8,7 +8,7 @@
 - [How to use](#How%20to%20use)
 - [Installation steps](#Installation%20steps)
 - [How to use](#how-to-use)
- ![banner img](https://github.com/natnoppol/JavaScript1/blob/main/Photo/4f0ac3e0-visual_studio_code.png)
+- ![banner img](https://github.com/natnoppol/JavaScript1/blob/main/Photo/4f0ac3e0-visual_studio_code.png)
 
 
 🟢 This website has 4 pages.
