@@ -11,13 +11,12 @@
 - ![banner img](https://www.google.no/url?sa=i&url=https://www.geeksforgeeks.org/how-to-install-visual-studio-code-on-windows/&psig=AOvVaw2WUymlW4gzI2q_wojo9Ial&ust=1706534831696000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPiIruWXgIQDFQAAAAAdAAAAABAD)
 
 
-🟢 This website has 6 pages.
-- home page
-- feature page
-- megamenu page
-- mega tabs page
-- technology page
-- contact page
+🟢 This website has 4 pages.
+
+- Home Page containing product list `/index.html`
+- Product Page showing all details of a specific product `/product/index.html`
+- Checkout Page showing all items in the basket `/checkout/index.html`
+- Confirmation Page showing a thank you message `/checkout/confirmation/index.html`
 
 ## Steps for installation
 ``` bash
