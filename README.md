@@ -19,13 +19,14 @@
 - Confirmation Page showing a thank you message `/checkout/confirmation/index.html`
 
 ## Steps for installation
+
 ``` bash
 git clone https://github.com/natnoppol/JavaScript1.git
 cd JavaScript
-pip install requirements.txt ```
+pip install requirements.txt
 
 ## How to use
-``` bash Javascript ```
+``` bash Javascript
 
 ## Credit
 Natnoppol Pansantia - Coding Consultant (Software Developer)
