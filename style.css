@@ -36,6 +36,27 @@ i {
   cursor: pointer;
 }
 
+/* --TOP WEB */
+.topweb {
+  background-color: black;
+  padding: 7px;
+}
+.topweb .wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+.topweb .wrapper .top-web-left a {
+  color: white;
+  margin-right: 12px;
+}
+.topweb .wrapper .top-web-right a i {
+  color: white;
+  margin-left: 12px;
+}
+
+
   li {
     list-style: none;
   }
@@ -356,27 +377,33 @@ i {
   
   
   }
-  @media (min-width:1200px){
+ 
+  @media (max-width: 991px) {
+    .topweb {
+      display: none;
+    }
+
+
+
+
     .icon{
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .parent{
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .FlexContainer{
-        display: flex;
-    }
-    .hero-card{
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: center;
-    }
-    .product-detail{
-        flex-direction: row;
-    }
-    .product-info form{
-        left: 100px;
-    }
+      grid-template-columns: repeat(4, 1fr);
   }
-  
-  
+  .parent{
+      grid-template-columns: repeat(4, 1fr);
+  }
+  .FlexContainer{
+      display: flex;
+  }
+  .hero-card{
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: center;
+  }
+  .product-detail{
+      flex-direction: row;
+  }
+  .product-info form{
+      left: 100px;
+  }
+  }
