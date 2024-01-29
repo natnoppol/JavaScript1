@@ -12,7 +12,7 @@ const productInfo = productDetail.querySelector('.product-info');
 const productName = productInfo.querySelector('h1');
 const productDesc = productInfo.querySelector('p');
 const productPrice = productInfo.querySelector('h2');
-const pageTitle = document.querySelector('title'); // Hämta <title> elementet
+const pageTitle = document.querySelector('title'); 
 
 //Define a function to retrieve product information from the API server,
 //update the page and page title with the product information
