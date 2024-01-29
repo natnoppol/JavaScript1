@@ -28,6 +28,11 @@ p {
   font-size: 15px;
 }
 
+image{
+  width: 10%;
+  height: 10%;
+}
+
 img {
   width: 100%;
   height: 100%;
@@ -116,13 +121,23 @@ header .search {
   position: absolute;
   right: 0;
   background-color: #eeecec;
-  padding: 8px;
+  padding: 3px;
   border-radius: 5px;
 }
-
-header .search i:hover {
-  color: orangered;
+header form {
+  display: flex;
+  align-items: center;
 }
+
+form input {
+  width: 320px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 20px;
+  outline: none;
+  padding-left: 15px;
+}
+
 
 
 /* NOT DONE */
@@ -454,6 +469,27 @@ td {
   margin: 10px;
 }
 
+
+/* END */
+.end{
+  background-color: rgb(5, 5, 5);
+}
+.end .wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
+.end .wrapper p{color: white;}
+.end .wrapper ul{
+  display: flex;
+}
+.end .wrapper ul li a{
+  margin-left: 10px;
+  color: white;
+  font-size: 14px;
+}
+
 /* media query */
 
 @media (min-width: 576px) {
@@ -540,7 +576,6 @@ td {
     margin-top: 25px;
   }
 
-  
   .logo-991 {
     display: block;
     border-bottom: 1px solid #cccccc;
@@ -593,4 +628,17 @@ td {
   .product-info form {
     left: 100px;
   }
+}
+
+
+/* Max-wuidth 880px */
+@media(max-width:880px){
+
+  /* End wrapper */
+.end .wrapper{
+  display: flex;
+ flex-direction: column;
+}
+.end .wrapper ul{margin-top: 20px; order: 1;}
+
 }

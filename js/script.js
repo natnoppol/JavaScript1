@@ -1,6 +1,5 @@
 const dataContainer = document.getElementById("data-container");
 
-
     fetch("https://api.noroff.dev/api/v1/rainy-days")
 
     //json to javasript object by method . json()
@@ -8,10 +7,22 @@ const dataContainer = document.getElementById("data-container");
     .then(data => {
         data.forEach(post =>{
             console.log(post);
-            const postElement = document.createElement("p");
-            postElement.textContent = `
-            Post ID: ${post.id} - Title: ${post.title}, Body: ${post.body}`;
-            dataContainer.appendChild(postElement);
+            console.log(post.baseColor);
+            console.log(post.description);
+            console.log(post.discountedPrice);
+
+            const descriptionElement = document.createElement("p");
+            descriptionElement.innerText = post.description;
+            dataContainer.appendChild (descriptionElement);
+            
+            const imageContainer = document.createElement("div");
+            imageContainer.classList.add("image")
+
+            const imageElement = document.createElement("img");
+            imageElement.src = post.image ;
+            // dataContainer.appendChild (imageElement);
+            imageContainer.appendChild(imageElement);
+            dataContainer.appendChild (imageContainer);
         })
 
     })

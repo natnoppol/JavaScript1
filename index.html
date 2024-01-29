@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="/public/stylesheets/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-  <script src="/js/script.js"></script>
+  <script src="/js/script.js" defer></script>
 
   <title> Outdoor clothing</title>
 
@@ -47,7 +47,9 @@
         <li><a href="confirmation.html">confirmation</a></li>
       </ul>
       <div class="search">
-        <i class="fas fa-search"></i>
+        <form id="form">
+          <input type="text" id="search" placeholder="Search" class="search">
+        </form>
       </div>
     </div>
   </header>
@@ -73,6 +75,7 @@
       <div class="parent"></div>
     </section>
   </main>
+
   <div id="data-container"></div>
 
   <div class="icon">
@@ -160,9 +163,20 @@
       </ul>
     </div>
   </div>
-  <div class="footercopy">
-    <h4>&copy; Outdoor clothing</h4>
+
+  <div class="end">
+    <div class="wrapper">
+      <p>Design by - Natnoppol Pansantia</p>
+
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Privacy Policy</a></li>
+        <li><a href="">Contact Us</a></li>
+      </ul>
+    </div>
   </div>
+
 
 </body>
 
