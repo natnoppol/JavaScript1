@@ -6,23 +6,22 @@ const dataContainer = document.getElementById("data-container");
     .then(res => res.json())
     .then(data => {
         data.forEach(post =>{
-            console.log(post);
-            console.log(post.baseColor);
-            console.log(post.description);
-            console.log(post.discountedPrice);
 
-            const descriptionElement = document.createElement("p");
-            descriptionElement.innerText = post.description;
-            dataContainer.appendChild (descriptionElement);
-            
-            const imageContainer = document.createElement("div");
-            imageContainer.classList.add("image")
+            console.log (data);
 
+            const el = document.createElement('div');
             const imageElement = document.createElement("img");
-            imageElement.src = post.image ;
-            // dataContainer.appendChild (imageElement);
-            imageContainer.appendChild(imageElement);
-            dataContainer.appendChild (imageContainer);
+            const priceElement = document.createElement('h2');
+
+            //-----------ALSO HAVE innerText-----------
+            priceElement.innerHTML = `${post.price}`;
+            imageElement.src = post.image;
+
+            el.appendChild(imageElement);
+            el.appendChild(priceElement);
+            dataContainer.appendChild (el);
+        
+
         })
 
     })
