@@ -1,8 +1,8 @@
-:root {
+:root{
     --gray: rgb(70, 69, 69);
   }
   
-  * {
+  *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,18 +12,18 @@
     transition: 0.5s;
   }
   
-  body {
+  body{
     background-color: #ebe9e9;
   }
   
-  .wrapper {
+  .wrapper{
     max-width: 1100px;
     margin: auto;
     padding: 0 20px;
     /* border: 1px solid red; */
   }
   
-  p {
+  p{
     color: var(--gray);
     font-size: 15px;
   }
@@ -33,17 +33,17 @@
     height: 10%;
   }
   
-  img {
+  img{
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   
-  i {
+  i{
     cursor: pointer;
   }
 
-  .apple {
+  .apple{
     font-size: 10px;
     background-color: orangered;
     display: inline-block;
@@ -54,62 +54,62 @@
      text-transform: uppercase;
   }
   
-  /* --TOP WEB */
-  .topweb {
+ 
+  .topweb{
     background-color: black;
     padding: 7px;
   }
   
-  .topweb .wrapper {
+  .topweb .wrapper{
     display: flex;
     justify-content: space-between;
     font-size: 13px;
     text-transform: capitalize;
   }
   
-  .topweb .wrapper .top-web-left a {
+  .topweb .wrapper .top-web-left a{
     color: white;
     margin-right: 12px;
   }
   
-  .topweb .wrapper .top-web-right a i {
+  .topweb .wrapper .top-web-right a i{
     color: white;
     margin-left: 12px;
   }
   
   /*----------- NAVIGATION BAR-------------- */
-  header {
+  header{
     background-color: white;
     padding: 15px;
     width: 100%;
   }
   
   #bars,
-  #times {
+  #times{
     display: none;
   }
   
-  header .wrapper {
+  header .wrapper{
     display: flex;
     align-items: center;
     position: relative;
   }
   
-  header .wrapper .logo {
+  header .wrapper .logo{
     font-size: 25px;
     color: black;
     font-weight: 800;
   }
   
-  header .wrapper .logo i {
+  header .wrapper .logo i{
     color: orangered;
   }
   
-  header .wrapper .navbar {
+  header .wrapper .navbar{
     display: inline-flex;
   }
   
-  header .wrapper .navbar li a {
+  header .wrapper .navbar li a{
     font-size: 14px;
     color: black;
     font-weight: 600;
@@ -117,30 +117,30 @@
     text-transform: uppercase;
   }
   
-  .logo-991 {
+  .logo-991{
     display: none;
   }
   
   header .wrapper .navbar li a:hover,
   .topweb .wrapper a:hover,
-  .topweb .wrapper a i:hover {
+  .topweb .wrapper a i:hover{
     color: orangered;
     transition: all 0.1s;
   }
   
-  header .search {
+  header .search{
     position: absolute;
     right: 0;
     background-color: #eeecec;
     padding: 3px;
     border-radius: 5px;
   }
-  header form {
+  header form{
     display: flex;
     align-items: center;
   }
   
-  form input {
+  form input{
     width: 320px;
     height: 30px;
     border: 1px solid black;
@@ -317,12 +317,6 @@
     margin-bottom: 1em;
   }
   
-  .parent {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    text-align: center;
-  }
-  
   .items-card {
     position: relative;
     display: inline;
@@ -478,7 +472,7 @@
   }
   
   .fullscreen th,
-  td {
+  td{
     padding: 10px;
   }
   
@@ -486,16 +480,16 @@
     background-color: lightgrey;
   }
   
-  th {
+  th{
     background-color: darkgrey;
     border: 1px solid black;
   }
   
-  td {
+  td{
     border: 1px solid black;
   }
   
-  .checkout-box {
+  .checkout-box{
     background-color: rgb(145, 167, 167);
   }
   
@@ -511,7 +505,7 @@
       display: block;
     } */
   .fname,
-  .lname {
+  .lname{
     margin-left: 0em;
   }
   
@@ -519,7 +513,7 @@
     margin-right: 0;
   }
   
-  .submit-button {
+  .submit-button{
     text-align: center;
     height: 40px;
     width: 80px;
@@ -527,7 +521,6 @@
   }
   
   
-  /* END */
   .end{
     background-color: rgb(5, 5, 5);
   }
@@ -547,11 +540,9 @@
     font-size: 14px;
   }
   
-  /* media query */
-  
   @media (min-width: 576px) {
   
-    .site-header>div {
+    .site-header>div{
       flex-direction: row;
     }
   
@@ -567,10 +558,7 @@
       display: none;
     }
   
-    .parent {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
+
     .info {
       display: flex;
     }
@@ -660,15 +648,11 @@
   
     /* NOT DONE YET */
   
-    .icon {
+    .icon{
       grid-template-columns: repeat(4, 1fr);
     }
   
-    .parent {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  
-    .FlexContainer {
+    .FlexContainer{
       display: flex;
     }
   

@@ -1,8 +1,8 @@
-:root {
+:root{
   --gray: rgb(70, 69, 69);
 }
 
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,43 +12,42 @@
   transition: 0.5s;
 }
 
-body {
+body{
   background-color: #ebe9e9;
 }
 
-.wrapper {
+.wrapper{
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
   /* border: 1px solid red; */
 }
 
-p {
+p{
   color: var(--gray);
   font-size: 15px;
 }
 
 /* -----------------CLOTH CONTAINER-------------- */
-#data-container{
+#data-container-cloth{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-#data-container div{
+#data-container-cloth div{
   width: 250px;
   height: 320px;
   margin: 20px 15px;  
   background-color: #333;
 }
 
-img {
+img{
   width: 100%;
   height: 90%;
   object-fit: cover;
-
 }
 
-h2 {
+h2{
   font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
@@ -56,17 +55,17 @@ h2 {
 }
 
 
-i {
+i{
   cursor: pointer;
 }
 
-/* --TOP WEB */
-.topweb {
+/* -----------This css is over navbar----------- */
+.topweb{
   background-color: black;
   padding: 7px;
 }
 
-.topweb .wrapper {
+.topweb .wrapper{
   display: flex;
   justify-content: space-between;
   font-size: 13px;
@@ -161,55 +160,54 @@ form input {
 
 
 
-li {
+li{
   list-style: none;
 }
 
-.site-header {
+.site-header{
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 1em;
 }
 
-.cart-icon {
+.cart-icon{
   position: absolute;
   top: 75px;
   right: 10px;
   transform: translate(-50%, -50%);
 }
 
-.site-header>div {
+.site-header > div{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
 
-.site-header>ul {
+.site-header > ul{
   display: block;
   list-style: none;
-
 }
 
-.site-header li {
+.site-header li{
   list-style: none;
   margin: 1em;
   font-size: 18px;
 }
 
-.site-header img {
+.site-header img{
   max-width: 100%;
   width: unset;
 }
 
-.site-header input {
+.site-header input{
   border-radius: 7px;
   height: 1.5em;
   width: 30em;
 }
 
-.hero {
+.hero{
   border: 0.25em solid black;
   display: flex;
   flex-direction: column;
@@ -218,16 +216,16 @@ li {
   text-align: center;
 }
 
-.hero img {
+.hero img{
   width: 1100px;
   max-width: 100%;
 }
 
-img {
+img{
   max-width: 100%;
 }
 
-.hero-card {
+.hero-card{
   display: flex;
   flex-direction: column;
 }
@@ -237,7 +235,7 @@ img {
   transform: translate(-3px);
 }
 
-.hero button {
+.hero button{
   width: 75%;
   height: 3em;
   box-shadow: 2px 2px 5px;
@@ -245,13 +243,13 @@ img {
   margin-top: 1em;
 }
 
-.hero h1 {
+.hero h1{
   text-decoration: underline;
   margin-bottom: .4em;
-
 }
 
-.FlexContainer {
+/* flex-container (This css maybe not use) */
+/* .FlexContainer{
   display: none;
   justify-content: center;
   gap: 2em;
@@ -259,31 +257,20 @@ img {
   font-weight: bold;
   font-size: larger;
   margin-bottom: 1em;
-}
+} */
 
-.flexcard {
+.flexcard{
   position: relative;
 }
 
-.flexcard .Flex-text {
+.flexcard .Flex-text{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.popular-products h1 {
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  text-align: center;
-}
-
-.items-card {
+.items-card{
   position: relative;
   display: inline;
   margin: 1em;
@@ -291,50 +278,42 @@ img {
   border: 2px solid black;
 }
 
-.items-card img {
+.items-card img{
   width: 25%;
 }
 
-.items-card .heart {
+.items-card .heart{
   position: absolute;
   bottom: 15px;
   right: 10px;
 }
 
-.items-name {
+.items-name{
   font-weight: bold;
   float: left;
 }
 
-.items-price {
+.items-price{
   font-weight: bold;
   float: right;
 }
 
 /* buttom icon*/
 
-.icon {
+.icon{
   display: grid;
   grid-template-columns: repeat(1, 2fr);
   text-align: center;
 }
 
-.icon>div {
+.icon > div{
   display: flex;
   flex-direction: row;
   gap: 1em;
   margin: 1em;
 }
 
-
-.footercopy {
-  font-size: large;
-  text-align: center;
-  margin-top: 30px;
-}
-
-/* product detail! */
-.product-detail {
+.product-detail{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -342,11 +321,11 @@ img {
   margin: 1em;
 }
 
-.product-detail img {
+.product-detail img{
   justify-content: start;
 }
 
-.product-detail {
+.product-detail{
   border: 2px solid black;
 }
 
@@ -356,27 +335,26 @@ img {
   flex-direction: column;
 }
 
-.product-info>* {
+.product-info > *{
   margin-bottom: 1em;
   gap: 1em;
 }
 
-.product-detail button {
+.product-detail button{
   box-shadow: 2px 2px;
   height: 30px;
   margin: 10px;
 }
 
-.product-detail button:hover {
+.product-detail button:hover{
   background-color: #8C92AC;
-
 }
 
-.product-detail form {
+.product-detail form{
   text-align: start;
 }
 
-details>summary {
+details > summary{
   border: 1px solid black;
   background-color: #8C92AC;
   list-style: none;
@@ -384,27 +362,26 @@ details>summary {
   text-align: left;
 }
 
-.accordion {
+.accordion{
   border: 1px solid rgb(255, 0, 0);
   margin: 1em;
 }
 
-.info {
+.info{
   display: none;
   gap: 2em;
   margin: 2em;
-
 }
 
-.info ul {
+.info ul{
   list-style: none;
 }
 
-.info li {
+.info li{
   margin-top: .5em;
 }
 
-footer {
+footer{
   font-weight: bold;
   text-align: center;
   margin: 1em;
@@ -412,25 +389,25 @@ footer {
 
 
 
-/* checkout */
+/* ----------THIS CSS IS MAY USE ON CHECKOUT PAGE -----------------*/
 
-.herocheckout {
+.herocheckout{
   margin-top: 50px;
   text-align: center;
   margin-bottom: 50px;
 }
 
-.checkout-box {
+.checkout-box{
   border: 1px solid black;
   height: 70px;
   margin: .5em;
 }
 
-.fullscreen {
+.fullscreen{
   display: none;
 }
 
-.fullscreen table {
+.fullscreen table{
   width: 100%;
   border: 1px solid black;
   margin: 1em;
@@ -438,24 +415,24 @@ footer {
 }
 
 .fullscreen th,
-td {
+td{
   padding: 10px;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(odd){
   background-color: lightgrey;
 }
 
-th {
+th{
   background-color: darkgrey;
   border: 1px solid black;
 }
 
-td {
+td{
   border: 1px solid black;
 }
 
-.checkout-box {
+.checkout-box{
   background-color: rgb(145, 167, 167);
 }
 
@@ -471,15 +448,15 @@ td {
     display: block;
   } */
 .fname,
-.lname {
+.lname{
   margin-left: 0em;
 }
 
-#checkbox {
+#checkbox{
   margin-right: 0;
 }
 
-.submit-button {
+.submit-button{
   text-align: center;
   height: 40px;
   width: 80px;
@@ -487,7 +464,7 @@ td {
 }
 
 
-/* END */
+/* --------------This css is bottom of index.html------------------- */
 .end{
   background-color: rgb(5, 5, 5);
 }
@@ -511,45 +488,41 @@ td {
 
 @media (min-width: 576px) {
 
-  .site-header>div {
+  .site-header > div{
     flex-direction: row;
   }
 
-  .site-header li {
+  .site-header li{
     display: inline;
   }
 
-  .icon {
+  .icon{
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .accordion {
+  .accordion{
     display: none;
   }
 
-  .parent {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .info {
+  .info{
     display: flex;
   }
 
-  .product-detail {
+  .product-detail{
     text-align: start;
     display: flex;
     flex-direction: row;
   }
 
-  .fullscreen {
+  .fullscreen{
     display: flex;
   }
 
-  .kundnamn {
+  .kundnamn{
     display: flex;
   }
 
-  .checkout-box {
+  .checkout-box{
     display: none;
   }
 
@@ -557,10 +530,10 @@ td {
 }
 
 @media (max-width: 991px) {
-  .topweb {
+  .topweb{
     display: none;
   }
-  #bars {
+  #bars{
     display: block;
     font-size: 20px;
     margin-right: 20px;
@@ -568,11 +541,11 @@ td {
   }
 
   .bars:hover,
-  .times:hover {
+  .times:hover{
     color: orangered;
     cursor: pointer;
   }
-  header .navbar {
+  header .navbar{
     position: absolute;
     width: 280px;
     height: 150vh;
@@ -585,15 +558,15 @@ td {
     opacity: 1;
     /* visibility: hidden; */
   }
-  header .wrapper .navbar {
+  header .wrapper .navbar{
     display: block;
   }
 
-  header .wrapper .navbar li {
+  header .wrapper .navbar li{
     margin-top: 25px;
   }
 
-  .logo-991 {
+  .logo-991{
     display: block;
     border-bottom: 1px solid #cccccc;
     padding: 17px;
@@ -603,12 +576,12 @@ td {
     font-weight: 800;
   }
 
-  .logo-991 i {
+  .logo-991 i{
     color: orangered;
     margin: 0 10px;
   }
 
-  #times {
+  #times{
     display: block;
     position: absolute;
     top: 24px;
@@ -620,29 +593,25 @@ td {
 
 
 
-  .icon {
+  .icon{
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .parent {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .FlexContainer {
+  .FlexContainer{
     display: flex;
   }
 
-  .hero-card {
+  .hero-card{
     flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
   }
 
-  .product-detail {
+  .product-detail{
     flex-direction: row;
   }
 
-  .product-info form {
+  .product-info form{
     left: 100px;
   }
 }

@@ -1,4 +1,4 @@
-const dataContainer = document.getElementById("data-container");
+const dataContainer = document.getElementById("data-container-cloth");
 
     fetch("https://api.noroff.dev/api/v1/rainy-days")
 
