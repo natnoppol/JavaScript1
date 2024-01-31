@@ -1,4 +1,5 @@
 const dataContainer = document.getElementById("data-container-cloth");
+const searchApi = ``;
 
     fetch("https://api.noroff.dev/api/v1/rainy-days")
 
