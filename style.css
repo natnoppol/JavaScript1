@@ -60,61 +60,61 @@ i{
 }
 
 /* -----------This css is over navbar----------- */
-.topweb{
+.navbar-social{
   background-color: black;
   padding: 7px;
 }
 
-.topweb .wrapper{
+.navbar-social .wrapper{
   display: flex;
   justify-content: space-between;
   font-size: 13px;
   text-transform: capitalize;
 }
 
-.topweb .wrapper .top-web-left a {
+.navbar-social .wrapper .navbar-web-left a {
   color: white;
   margin-right: 12px;
 }
 
-.topweb .wrapper .top-web-right a i {
+.navbar-social .wrapper .navbar-web-right a i {
   color: white;
   margin-left: 12px;
 }
 
 /*----------- NAVIGATION BAR-------------- */
-header {
+header{
   background-color: white;
   padding: 15px;
   width: 100%;
 }
 
 #bars,
-#times {
+#times{
   display: none;
 }
 
-header .wrapper {
+header .wrappe {
   display: flex;
   align-items: center;
   position: relative;
 }
 
-header .wrapper .logo {
+header .wrapper .logo{
   font-size: 25px;
   color: black;
   font-weight: 800;
 }
 
-header .wrapper .logo i {
+header .wrapper .logo i{
   color: orangered;
 }
 
-header .wrapper .navbar {
+header .wrapper .navbar-primary{
   display: inline-flex;
 }
 
-header .wrapper .navbar li a {
+header .wrapper .navbar-primary li a{
   font-size: 14px;
   color: black;
   font-weight: 600;
@@ -122,30 +122,30 @@ header .wrapper .navbar li a {
   text-transform: uppercase;
 }
 
-.logo-991 {
+.logo-991{
   display: none;
 }
 
-header .wrapper .navbar li a:hover,
-.topweb .wrapper a:hover,
-.topweb .wrapper a i:hover {
+header .wrapper .navbar-primary li a:hover,
+.navbar-social .wrapper a:hover,
+.navbar-social .wrapper a i:hover{
   color: orangered;
   transition: all 0.1s;
 }
 
-header .search {
+header .search{
   position: absolute;
-  right: 0;
+  top: 25px;
+  right: 51px;
   background-color: #eeecec;
-  padding: 3px;
   border-radius: 5px;
 }
-header form {
+header form{
   display: flex;
   align-items: center;
 }
 
-form input {
+form input{
   width: 320px;
   height: 30px;
   border: 1px solid black;
@@ -154,12 +154,16 @@ form input {
   padding-left: 15px;
 }
 
+.cart-icon{
+  position: absolute;
+  top: 65px;
+  right: 60px;
+  transform: translate(-50%, -50%);
+}
 
 
-/* NOT DONE */
 
-
-
+/* ------------THIS CSS CODE DOWN BELOW IS NOT DONE AND SOME NOT USE------------------ */
 li{
   list-style: none;
 }
@@ -171,12 +175,6 @@ li{
   padding: 1em;
 }
 
-.cart-icon{
-  position: absolute;
-  top: 75px;
-  right: 10px;
-  transform: translate(-50%, -50%);
-}
 
 .site-header > div{
   display: flex;
@@ -484,53 +482,8 @@ td{
   font-size: 14px;
 }
 
-/* media query */
-
-@media (min-width: 576px) {
-
-  .site-header > div{
-    flex-direction: row;
-  }
-
-  .site-header li{
-    display: inline;
-  }
-
-  .icon{
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .accordion{
-    display: none;
-  }
-
-  .info{
-    display: flex;
-  }
-
-  .product-detail{
-    text-align: start;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .fullscreen{
-    display: flex;
-  }
-
-  .kundnamn{
-    display: flex;
-  }
-
-  .checkout-box{
-    display: none;
-  }
-
-
-}
-
 @media (max-width: 991px) {
-  .topweb{
+  .navbar-social{
     display: none;
   }
   #bars{
@@ -545,7 +498,7 @@ td{
     color: orangered;
     cursor: pointer;
   }
-  header .navbar{
+  header .navbar-primary{
     position: absolute;
     width: 280px;
     height: 150vh;
@@ -558,11 +511,11 @@ td{
     opacity: 1;
     /* visibility: hidden; */
   }
-  header .wrapper .navbar{
+  header .wrapper .navbar-primary{
     display: block;
   }
 
-  header .wrapper .navbar li{
+  header .wrapper .navbar-primary li{
     margin-top: 25px;
   }
 
@@ -616,8 +569,6 @@ td{
   }
 }
 
-
-/* Max-wuidth 880px */
 @media(max-width:880px){
 
   /* End wrapper */
@@ -627,4 +578,45 @@ td{
 }
 .end .wrapper ul{margin-top: 20px; order: 1;}
 
+}
+
+@media (min-width: 576px) {
+
+  .site-header > div{
+    flex-direction: row;
+  }
+
+  .site-header li{
+    display: inline;
+  }
+
+  .icon{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .accordion{
+    display: none;
+  }
+
+  .info{
+    display: flex;
+  }
+
+  .product-detail{
+    text-align: start;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .fullscreen{
+    display: flex;
+  }
+
+  .kundnamn{
+    display: flex;
+  }
+
+  .checkout-box{
+    display: none;
+  }
 }

@@ -37,14 +37,14 @@ const dataContainer = document.getElementById("data-container-cloth");
         header.classList.toggle("sticky", window.scrollY > 50)
     })
     
-    var NavBar =  document.getElementById("NavBar")
+    var navBar =  document.getElementById("navBar")
     
     function showMenu(){
-        NavBar.style.left = "-15px";
+        navBar.style.left = "-15px";
     }
     
     function hideMenu(){
-        NavBar.style.left = "-300px";
+        navBar.style.left = "-300px";
     }
 
 
