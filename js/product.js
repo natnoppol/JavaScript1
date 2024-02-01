@@ -1,4 +1,6 @@
-"use strict"
+
+
+
 
 // Create a URLSearchParams object based on the URL query string
 const urlParams = new URLSearchParams(location.search);

@@ -1,3 +1,5 @@
+const data = loadData().then(data => console.log (data));
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements
@@ -19,3 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
   });
+
+
