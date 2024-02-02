@@ -19,6 +19,8 @@ function hideMenu() {
 
 
 
+
+
 const getRainyday = async()=> {
     const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
     return res.json();
@@ -44,6 +46,10 @@ const el = async () => {
 
         })
     }
+
+
+
+
 
     el()
 
