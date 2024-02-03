@@ -20,108 +20,62 @@ function hideMenu() {
 
 
 
+const cart = () => {
+    let iconCart = document.querySelector('.icon-cart');
+    let closeBtn = document.querySelector('cartTab .close');
+    let body = document.querySelector('body');
 
-const getRainyday = async()=> {
+    iconCart.addEventListener('click', () => {
+        body.classList.toggle('activeTabCart')
+    })
+    closeBtn.addEventListener('click', () => {
+        body.classList.toggle('activeTabCart');
+    })
+}
+export default cart;
+
+
+
+const getRainyday = async () => {
     const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
     return res.json();
 }
 
 const el = async () => {
-        const data = await getRainyday()
-        data.forEach(post => {
-    
-            console.log(data);
-    
-            const el = document.createElement('div');
-            const imageElement = document.createElement("img");
-            const priceElement = document.createElement('h2');
-    
-            //-----------ALSO HAVE innerText-----------
-            priceElement.innerHTML = `${post.price}`;
-            imageElement.src = post.image;
-    
-            el.appendChild(imageElement);
-            el.appendChild(priceElement);
-            dataContainer.appendChild(el);
+    const data = await getRainyday()
+    data.forEach(post => {
 
-        })
-    }
+        console.log(data);
+
+        const el = document.createElement('div');
+        const productLink = document.createElement('a');
+        const imageElement = document.createElement("img");
+        const priceElement = document.createElement('h2');
+        
+        //-----------ALSO HAVE innerText-----------
+        priceElement.innerHTML = `${post.price}`;
+        imageElement.src = post.image;
 
 
+        productLink.href = `/product/index.html?id=${post.id}`;
+        productLink.classList.add("product_link");
+
+        el.appendChild(imageElement);
+        el.appendChild(priceElement);
+        el.appendChild(productLink);
+        productLink.appendChild(imageElement);
+        productLink.appendChild(priceElement);
+        dataContainer.appendChild(el);
+
+    })
+}
 
 
 
-    el()
-
-
-
-
-// async function getRainyday() {
-//     const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
-//     // console.log(res.json());
-//     return res.json();
-// }
-
-
-// function el() {
-//     const data = getRainyday()
-//     data.forEach(post => {
-
-//         console.log(data);
-
-//         const el = document.createElement('div');
-//         const imageElement = document.createElement("img");
-//         const priceElement = document.createElement('h2');
-
-//         //-----------ALSO HAVE innerText-----------
-//         priceElement.innerHTML = `${post.price}`;
-//         imageElement.src = post.image;
-
-//         el.appendChild(imageElement);
-//         el.appendChild(priceElement);
-//         dataContainer.appendChild(el);
-
-
-//     })
-// }
-
-// getRainyday()
+el()
 
 
 
 
 
 
-
-
-
-
-//json to javasript object by method . json()
-// .then(res => res.json())
-// .then(data => {
-//     data.forEach(post =>{
-
-//         console.log (data);
-
-//         const el = document.createElement('div');
-//         const imageElement = document.createElement("img");
-//         const priceElement = document.createElement('h2');
-
-//         //-----------ALSO HAVE innerText-----------
-//         priceElement.innerHTML = `${post.price}`;
-//         imageElement.src = post.image;
-
-//         el.appendChild(imageElement);
-//         el.appendChild(priceElement);
-//         dataContainer.appendChild (el);
-
-
-//     })
-
-// })
-
-
-// handle the error
-// .catch(error =>{
-//     console.log("error fetcing data:", error);
-// }) 

@@ -27,7 +27,7 @@ p{
   color: var(--gray);
   font-size: 15px;
 }
-.svg{
+svg{
   width: 30px;
 }
 button{
@@ -176,6 +176,55 @@ header form{
   justify-content: center;
   align-items: center;
 }
+.title{
+  font-size: xx-large;
+}
+.cartTab{
+  background-color: #353432;
+  color: #eee;
+  width: 400px;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+}
+.cartTab h1{
+  padding: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+.cartTab .btn{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.cartTab .btn button{
+  background-color: orange;
+  border: none;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+.cartTab .btn button.close{
+  background-color: #eee;
+}
+.cartTab .listCart{
+  overflow: auto;
+}
+.cartTab .listCart::-webkit-scrollbar{
+  width: 0;
+}
+.cartTab{
+  right: -400px;
+  transition: 0.5s;
+}
+body.activeTabCart .cartTab{
+  right: 0;
+}
+body.activeTabCart .cart-container{
+  transform: translateX(-250px);
+}
 /* ------------THIS CSS CODE DOWN BELOW IS NOT DONE AND SOME NOT USE------------------ */
 li{
   list-style: none;
@@ -218,97 +267,6 @@ li{
   width: 30em;
 }
 
-.hero{
-  border: 0.25em solid black;
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
-  padding: 1em;
-  text-align: center;
-}
-
-.hero img{
-  width: 1100px;
-  max-width: 100%;
-}
-
-img{
-  max-width: 100%;
-}
-
-.hero-card{
-  display: flex;
-  flex-direction: column;
-}
-
-.hero button:hover {
-  background-color: #8C92AC;
-  transform: translate(-3px);
-}
-
-.hero button{
-  width: 75%;
-  height: 3em;
-  box-shadow: 2px 2px 5px;
-  transition: 0.5s;
-  margin-top: 1em;
-}
-
-.hero h1{
-  text-decoration: underline;
-  margin-bottom: .4em;
-}
-
-/* flex-container (This css maybe not use) */
-/* .FlexContainer{
-  display: none;
-  justify-content: center;
-  gap: 2em;
-  margin: 2em, 1em, 2em;
-  font-weight: bold;
-  font-size: larger;
-  margin-bottom: 1em;
-} */
-
-.flexcard{
-  position: relative;
-}
-
-.flexcard .Flex-text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.items-card{
-  position: relative;
-  display: inline;
-  margin: 1em;
-  align-items: center;
-  border: 2px solid black;
-}
-
-.items-card img{
-  width: 25%;
-}
-
-.items-card .heart{
-  position: absolute;
-  bottom: 15px;
-  right: 10px;
-}
-
-.items-name{
-  font-weight: bold;
-  float: left;
-}
-
-.items-price{
-  font-weight: bold;
-  float: right;
-}
-
 /* buttom icon*/
 
 .icon{
@@ -324,46 +282,7 @@ img{
   margin: 1em;
 }
 
-.product-detail{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1em;
-  margin: 1em;
-}
 
-.product-detail img{
-  justify-content: start;
-}
-
-.product-detail{
-  border: 2px solid black;
-}
-
-.product-detail>.product-info {
-  display: flex;
-  padding: 2em;
-  flex-direction: column;
-}
-
-.product-info > *{
-  margin-bottom: 1em;
-  gap: 1em;
-}
-
-.product-detail button{
-  box-shadow: 2px 2px;
-  height: 30px;
-  margin: 10px;
-}
-
-.product-detail button:hover{
-  background-color: #8C92AC;
-}
-
-.product-detail form{
-  text-align: start;
-}
 
 details > summary{
   border: 1px solid black;
@@ -476,29 +395,8 @@ details > summary{
     font-weight: 100;
     cursor: pointer;
   }
-
-
-
   .icon{
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .FlexContainer{
-    display: flex;
-  }
-
-  .hero-card{
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .product-detail{
-    flex-direction: row;
-  }
-
-  .product-info form{
-    left: 100px;
   }
 }
 
@@ -532,12 +430,6 @@ details > summary{
 
   .info{
     display: flex;
-  }
-
-  .product-detail{
-    text-align: start;
-    display: flex;
-    flex-direction: row;
   }
 
   .fullscreen{
