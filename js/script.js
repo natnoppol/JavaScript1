@@ -51,10 +51,11 @@ const el = async () => {
         const productLink = document.createElement('a');
         const imageElement = document.createElement("img");
         const priceElement = document.createElement('h2');
-        
+        const productName = document.createElement ('h4')
         //-----------ALSO HAVE innerText-----------
-        priceElement.innerHTML = `${post.price}`;
+        priceElement.innerHTML = `${post.price} NOK.`;
         imageElement.src = post.image;
+        productName.innerHTML = `${post.title}`;
 
 
         productLink.href = `/product/index.html?id=${post.id}`;

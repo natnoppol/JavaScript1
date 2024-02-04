@@ -9,17 +9,9 @@ const query = () => {
 
 const getRainyday = async (id) => {
   const res = await fetch(`https://api.noroff.dev/api/v1/rainy-days/${id}`);
-
-  // const response = res ();
-  // console.log(res.json());
   return res.json();
 }
 
-// const getSingleShirt = async () => {
-//   const id = (query());
-//   const data = await getRainyday(id)
-//   return data
-// }
 
 
 const el = async () => {
@@ -29,15 +21,31 @@ const el = async () => {
 
   const cont = document.querySelector('#data-container')
   const render = `
-  <div class="">
-    <h1>${item.title}</h1>
+  <div class="product-img">
     <img src="${item.image}"></img>
-    <p>${item.price}</p>
   </div>
-
+  <div class="product-detail"> 
+    <h1>${item.title}</h1>
+    <h3>${item.price} NOK.</h3>
+    <select id="mySelect">
+      <option>Select Size</option>
+      ${item.sizes.map(size => `<option>${size}</option>`)}
+    </select>
+    <select>
+      <option>Color</option>
+      <option>${item.baseColor}</option>
+    </select>
+    <input type="number" value="1">
+    <button class="normal">Add To Cart</button>
+    <h4>Product Detail</h4>
+    <span>${item.description}</span>
+    <br>
+  </div>
+  
   `
   cont.innerHTML = render
-
+  
 }
+
 
 el()

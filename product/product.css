@@ -1,0 +1,57 @@
+@import url(/style.css);
+
+#data-container{
+  display: flex;
+  margin-top: 20px;
+}
+.product-img{
+  width: 40%;
+  margin-right: 50px;
+}
+.product-detail h4 {
+  padding: 40px 0 20px;
+}
+.product-detail h3 {
+  padding: 26px;
+}
+.product-detail select{
+  display: block;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+.product-detail input{
+  width: 50px;
+  height: 47px;
+  padding-left: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.product-detail input:focus{
+  outline: none;
+}
+.product-detail button{
+  background: black;
+  color: white;
+  display: block;
+  padding: 5px 10px;
+  
+}
+.product-detail span{
+  line-height: 25px;
+}
+  
+
+  @media (max-width: 991px) {
+  
+  }
+  
+  @media(max-width:880px){
+  
+  }
+
+  @media(max-width:768px){
+  
+
+}
+
