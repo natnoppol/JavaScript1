@@ -43,32 +43,26 @@ const getRainyday = async () => {
 
 const el = async () => {
     const data = await getRainyday()
-    data.forEach(post => {
+    const contHome = document.querySelector('#data-container-cloth')
+    const productItem = data.map(post => 
 
-        console.log(data);
+         `
+         <a href="/product/index.html?id=${post.id}">
+            <div class="product-wrapper">
+                <div class="product-item">
+                    <img src="${post.image}"></img>
+                </div>
+                <div class="product-des"> 
+                    <p class="product-title">${post.title}</p>
+                    <p class="product-price">${post.price} NOK.</p>
+                </div>
+            </div>
+        </a>
+       
+        `
 
-        const el = document.createElement('div');
-        const productLink = document.createElement('a');
-        const imageElement = document.createElement("img");
-        const priceElement = document.createElement('h2');
-        const productName = document.createElement ('h4')
-        //-----------ALSO HAVE innerText-----------
-        priceElement.innerHTML = `${post.price} NOK.`;
-        imageElement.src = post.image;
-        productName.innerHTML = `${post.title}`;
-
-
-        productLink.href = `/product/index.html?id=${post.id}`;
-        productLink.classList.add("product_link");
-
-        el.appendChild(imageElement);
-        el.appendChild(priceElement);
-        el.appendChild(productLink);
-        productLink.appendChild(imageElement);
-        productLink.appendChild(priceElement);
-        dataContainer.appendChild(el);
-
-    })
+    )
+    contHome.innerHTML = productItem.join('')
 }
 
 
@@ -76,7 +70,24 @@ const el = async () => {
 el()
 
 
+// const el = document.createElement('div');
+// const productLink = document.createElement('a');
+// const imageElement = document.createElement("img");
+// const priceElement = document.createElement('h2');
+// const productName = document.createElement ('h2')
+// //-----------ALSO HAVE innerText-----------
+// priceElement.innerHTML = `${post.price} NOK.`;
+// imageElement.src = post.image;
+// productName.innerHTML = `${post.title}`;
 
 
+// productLink.href = `/product/index.html?id=${post.id}`;
+// productLink.classList.add("product_link");
 
-
+// el.appendChild(imageElement);
+// el.appendChild(priceElement);
+// el.appendChild(productName);
+// el.appendChild(productLink);
+// productLink.appendChild(imageElement);
+// productLink.appendChild(priceElement);
+// dataContainer.appendChild(el);
