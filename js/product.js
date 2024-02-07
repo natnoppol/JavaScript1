@@ -1,164 +1,127 @@
-const query = () => {
-  const qstr = window.location.search
-  const url = new URLSearchParams(qstr)
-  const id = url.get("id");
+const products = [];
 
-  return id
-}
-
-
-const getRainyday = async (id) => {
+// Function to fetch product data by ID
+async function fetchProductById(id) {
   const res = await fetch(`https://api.noroff.dev/api/v1/rainy-days/${id}`);
   return res.json();
 }
 
-const allData = async () => {
-  const res = await fetch(`https://api.noroff.dev/api/v1/rainy-days/`);
-  return res.json();
-}
-
-
-
-const el = async () => {
-  const id = query();
-  const item = await getRainyday(id);
-
-
-  const cont = document.querySelector('#data-container')
+// Function to render product details in the HTML
+function renderProduct(product) {
+  const cont = document.querySelector('#data-container');
   const render = `
-  <div class="product-img">
-    <img src="${item.image}"></img>
-  </div>
-  <div class="product-detail"> 
-    <h1>${item.title}</h1>
-    <h3>${item.price} NOK.</h3>
-    <select id="mySelect">
-      <option>Select Size</option>
-      ${item.sizes.map(size => `<option>${size}</option>`)}
-    </select>
-    <select id="mySelectColor">
-      <option>Color</option>
-      <option>${item.baseColor}</option>
-    </select>
-    <input type="number" id="mySelectNumber" value="1">
-    <button id="addToCart" class="normal">Add To Cart</button>
-    <h4>Product Detail</h4>
-    <span>${item.description}</span>
-    <br>
-  </div>
-  
-  `
-  cont.innerHTML = render
-
-}
-//1. กดปุ่ม add to cart  => alert(คลิ๊ก) 
-//2. function add to cart => มัน call => log 
-//3. เอา ID ค่าเดียว ใส่ array 
-//4. เอา สินค้าทั้งหมด ใส่ array 
-
-let products = []
-const itemInCart = [
-  {
-    "id": "07a7655a-7927-421b-ba6a-b6742d5a75b8",
-    "title": "Rainy Days Thunderbolt Jacket",
-    "description": "The Women's Rainy Days Thunderbolt jacket is a sleek and stylish waterproof jacket perfect for any outdoor adventure.",
-    "gender": "Female",
-    "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-    ],
-    "baseColor": "Black",
-    "price": 139.99,
-    "discountedPrice": 139.99,
-    "onSale": false,
-    "image": "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg",
-    "tags": [
-        "jacket",
-        "womens"
-    ],
-    "favorite": false
-},
-{
-  "id": "6e5ae9e6-2033-4c63-82b9-5b58226425f4",
-  "title": "Rainy Days VitaForce Jacket",
-  "description": "The Women's Rainy Days VitaForce jacket is a breathable and sustainable waterproof jacket for hiking.",
-  "gender": "Female",
-  "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-  ],
-  "baseColor": "Green",
-  "price": 124.99,
-  "discountedPrice": 124.99,
-  "onSale": false,
-  "image": "https://static.noroff.dev/api/rainy-days/6-vitaforce-jacket.jpg",
-  "tags": [
-      "jacket",
-      "womens"
-  ],
-  "favorite": false
+    <div class="product-img">
+      <img src="${product.image}"></img>
+    </div>
+    <div class="product-detail"> 
+      <h1>${product.title}</h1>
+      <h3>${product.price} NOK.</h3>
+      <select id="mySelect">
+        <option>Select Size</option>
+        ${product.sizes.map((size) => `<option>${size}</option>`).join('')}
+      </select>
+      <select id="mySelectColor">
+        <option>Color</option>
+        <option>${product.baseColor}</option>
+      </select>
+      <input type="number" id="mySelectNumber" value="1">
+      <button id="addToCart" class="normal">Add To Cart</button>
+      <h4>Product Detail</h4>
+      <span>${product.description}</span>
+      <br>
+    </div>`;
+  cont.innerHTML = render;
 }
 
-]
-async function addToCart() {
-  let iconCart = document.querySelector('#addToCart');
-  let id = query()
+// Function to check if a product with given ID, color, and size is already in the cart
+function isProductInCart(productId, color, size) {
+  return products.some(
+    (item) =>
+      item.id === productId && item.color === color && item.size === size
+  );
+}
 
-  const item = await getRainyday(id);
-  let selectElement = document.getElementById('mySelect');
-  let colorElement = document.getElementById('mySelectColor');
-  let numberElement = document.getElementById('mySelectNumber');
+// Function to add a product to the cart
+function addToCart(product) {
+  return async () => {
+    const selectElement = document.getElementById('mySelect');
+    const colorElement = document.getElementById('mySelectColor');
+    const numberElement = document.getElementById('mySelectNumber');
 
+    const selectedSize = selectElement.value;
+    const selectedColor = colorElement.value;
+    const selectedQuantity = parseInt(numberElement.value);
 
-  iconCart.addEventListener('click', async () => {
-    let selectValue = selectElement.value;
-    let selectColor = colorElement.value;
-    let selectNumber = numberElement.value;
+    const productId = product.id;
 
-    let emptyObject = {
-      'price': item.price,
-      'tittle': item.title,
-      'size': selectValue,
-      'color': selectColor,
-      'number': selectNumber,
-      'id': id
-    };
-    products = itemInCart
-
-    if (id === emptyObject.id) {
-      parseInt(emptyObject.number) + parseInt(selectNumber)
+    // Check if the product with the same ID, color, and size is already in the cart
+    if (isProductInCart(productId, selectedColor, selectedSize)) {
+      // If yes, update the quantity of the existing product
+      updateCartQuantity(
+        productId,
+        selectedColor,
+        selectedSize,
+        selectedQuantity
+      );
     } else {
-      products.push(emptyObject)
+      // If not, add the product to the cart
+      addProductToCart(
+        productId,
+        product.title,
+        product.price,
+        selectedColor,
+        selectedSize,
+        selectedQuantity
+      );
     }
 
-    
-    console.log(1, products)
-    console.log(2, emptyObject)
-    console.log(3, parseInt(emptyObject.number) + parseInt(selectNumber))
-    console.log(4, typeof emptyObject.number)
-    console.log(5, typeof selectNumber)
-    console.log(6, await allData())
-    console.log(7, (id === emptyObject.id))
-    
-
-
-  })
+    console.log('Updated products:', products);
+  };
 }
 
-
-const init = async () => {
-  await el()
-  await addToCart()
+// Function to update quantity of an existing product in the cart
+function updateCartQuantity(productId, color, size, selectedQuantity) {
+  const existingIndex = products.findIndex(
+    (item) =>
+      item.id === productId && item.color === color && item.size === size
+  );
+  products[existingIndex].quantity += selectedQuantity;
 }
 
+// Function to add a new product to the cart
+function addProductToCart(id, title, price, color, size, quantity) {
+  products.push({
+    id,
+    title,
+    price,
+    color,
+    size,
+    quantity,
+  });
+}
 
+// Function to extract the ID from the URL query string
+function query() {
+  const qstr = window.location.search;
+  const url = new URLSearchParams(qstr);
+  const id = url.get('id');
 
-init()
+  return id;
+}
+
+// Initialization function to set up the page
+async function init() {
+  // Fetch product ID from URL query string
+  const productId = query();
+  // Fetch product details based on ID
+  const product = await fetchProductById(productId);
+  // Render product details in the HTML
+  renderProduct(product);
+
+  // Add event listener to 'Add To Cart' button
+  const addToCartButton = document.getElementById('addToCart');
+  addToCartButton.addEventListener('click', addToCart(product));
+}
+
+// Initialize the page
+init();
