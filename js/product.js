@@ -38,10 +38,22 @@ function renderProduct(product) {
 // Function to check if a product with given ID, color, and size is already in the cart
 // ฟังก์ชันเพื่อตรวจสอบว่าสินค้าที่มีรหัสสินค้าเดียวกัน สีเดียวกัน และขนาดเดียวกันมีอยู่ในตะกร้าแล้วหรือไม่
 function isProductInCart(productId, color, size) {
-  return products.some(
-    (item) =>
-      item.id === productId && item.color === color && item.size === size
-  );
+  // Loop through each product in the cart
+  // วนลูปผ่านทุกๆสินค้าในตะกร้า
+  for (let i = 0; i < products.length; i++) {
+    // Check if the current product matches the provided ID, color, and size
+    // ตรวจสอบว่าสินค้าปัจจุบันตรงกับรหัสสินค้า, สี, และขนาดที่ให้มาหรือไม่
+    if (
+      products[i].id === productId &&
+      products[i].color === color &&
+      products[i].size === size
+    ) {
+      return true; // If found, return true
+      // หากพบ ให้คืนค่าเป็น true
+    }
+  }
+  return false; // If not found, return false
+  // หากไม่พบ ให้คืนค่าเป็น false
 }
 
 // Function to add a product to the cart
@@ -89,11 +101,24 @@ function addToCart(product) {
 // Function to update quantity of an existing product in the cart
 // ฟังก์ชันเพื่ออัปเดตปริมาณของสินค้าที่มีอยู่ในตะกร้า
 function updateCartQuantity(productId, color, size, selectedQuantity) {
-  const existingIndex = products.findIndex(
-    (item) =>
-      item.id === productId && item.color === color && item.size === size
-  );
-  products[existingIndex].quantity += selectedQuantity;
+  // Loop through each product in the cart
+  // วนลูปผ่านทุกๆสินค้าในตะกร้า
+  for (let i = 0; i < products.length; i++) {
+    // Check if the current product matches the provided ID, color, and size
+    // ตรวจสอบว่าสินค้าปัจจุบันตรงกับรหัสสินค้า, สี, และขนาดที่ให้มาหรือไม่
+    if (
+      products[i].id === productId &&
+      products[i].color === color &&
+      products[i].size === size
+    ) {
+      // If the product matches, update its quantity
+      // หากสินค้าตรงกับเงื่อนไข อัปเดตปริมาณของมัน
+      products[i].quantity += selectedQuantity;
+      // Once updated, exit the loop
+      // เมื่ออัปเดตแล้ว ออกจากลูป
+      break;
+    }
+  }
 }
 
 // Function to add a new product to the cart
