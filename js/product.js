@@ -5,7 +5,6 @@ const query = () => {
   const qstr = window.location.search
   const url = new URLSearchParams(qstr)
   const id = url.get("id");
-  console.log(1, qstr,url, id)
 
   return id
 }
@@ -15,8 +14,10 @@ query()
 // Function to fetch product data by ID
 async function fetchProductById(id) {
   const res = await fetch(`https://api.noroff.dev/api/v1/rainy-days/${id}`);
+
   return res.json();
 }
+
 
 // Function to render product details in the HTML
 function renderProduct(item) {
@@ -46,12 +47,48 @@ function renderProduct(item) {
 
 }
 // Function to check if a product with given ID, color, and size is already in the cart
+// Loop through each product in the cart
 function isProductInCart(productId, color, size) {
-
+  for (let i = 0; i < products.length; i++) {
+    // Check if the current product matches the provided ID, color, and size
+    if (
+      products[i].id === productId &&
+      products[i].color === color &&
+      products[i].size === size
+    ) {
+      return true; // If found, return true
+    }
+  }
+  return false; // If not found, return false
 }
 
+// Function to add a product to the cart
+function addToCart(product) {
+  return async () => {
+    const selectElement = document.getElementById('mySelect');
+    const colorElement = document.getElementById('mySelectColor');
+    const numberElement = document.getElementById('mySelectNumber');
 
-renderProduct()
+    const selectedSize = selectElement.value;
+    const selectedColor = colorElement.value;
+    const selectedQuantity = parseInt(numberElement.value);
+
+    const productId = product.id;
+    // Check if the product with the same ID, color, and size is already in the cart
+    if (isProductInCart(productId, SelectedColor, selectedSize)) {
+
+    }
+  }
+}
+
+async function init() {
+  const id = query();
+  const productItem = await fetchProductById(id);
+  renderProduct(productItem);
+}
+
+init()
+
 
 
 
