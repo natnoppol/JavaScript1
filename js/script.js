@@ -38,15 +38,16 @@ export default cart;
 
 const getRainyday = async () => {
     const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
+    
     return res.json();
 }
 
 const el = async () => {
     const data = await getRainyday()
     const contHome = document.querySelector('#data-container-cloth')
-    const productItem = data.map(post => 
+    const productItem = data.map(post =>
 
-         `
+        `
          <a href="/product/index.html?id=${post.id}">
             <div class="product-wrapper">
                 <div class="product-item">

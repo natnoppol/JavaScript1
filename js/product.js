@@ -8,8 +8,17 @@ const query = () => {
 
   return id
 }
-query()
-
+// Function to add a new product to the cart
+function addProductToCart (id,title,price,color,size,quantity){
+  products.push({
+    id,
+    title,
+    price,
+    color,
+    size,
+    quantity
+  });
+}
 
 // Function to fetch product data by ID
 async function fetchProductById(id) {
@@ -62,6 +71,24 @@ function isProductInCart(productId, color, size) {
   return false; // If not found, return false
 }
 
+// Function to update quantity of an existing product in the cart
+function updateCartQuantity(productId, color, size, selectedQuantity) {
+  // Loop through each product in the cart
+  for (let i = 0; i < products.length; i++) {
+    // Check if the current product matches the provided ID, color, and size
+    if (
+      products[i].id === productId &&
+      products[i].color === color &&
+      products[i].size === Size
+    ) {
+      // If the product matches, update its quantity
+      products[i].quantity += selectedQuantity;
+      // Once updated, exit the loop
+      break;
+    }
+  }
+}
+
 // Function to add a product to the cart
 function addToCart(product) {
   return async () => {
@@ -75,19 +102,37 @@ function addToCart(product) {
 
     const productId = product.id;
     // Check if the product with the same ID, color, and size is already in the cart
-    if (isProductInCart(productId, SelectedColor, selectedSize)) {
-
+    if (isProductInCart(productId, selectedColor, selectedSize)) {
+      // If yes, update the quantity of the existing product
+      updateCartQuantity(
+        productId,
+        selectedColor,
+        selectedSize,
+        selectedQuantity
+      );
+    } else {
+      // If not, add the product to the cart
+      addProductToCart(
+        productId,
+        product.title,
+        product.price,
+        selectedColor,
+        selectedSize,
+        selectedQuantity
+      );
     }
+    console.log(2, 'updated products:', products);
   }
 }
+
 
 async function init() {
   const id = query();
   const productItem = await fetchProductById(id);
   renderProduct(productItem);
 }
-
 init()
+
 
 
 
