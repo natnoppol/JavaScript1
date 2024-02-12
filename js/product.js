@@ -23,9 +23,11 @@ function addProductToCart(id, title, price, color, size, quantity) {
     size,
     quantity
   });
+  
   // Update the content of the <span> element to the length of the cart array
   const countCartItem = document.getElementById('countCartItems');
   countCartItem.textContent = products.length;
+  console.log(countCartItem)
 }
 
 // Function to fetch product data by ID
@@ -104,7 +106,6 @@ function addToCart(product) {
     const colorElement = document.getElementById('mySelectColor');
     const numberElement = document.getElementById('mySelectNumber');
 
-
     const selectedSize = selectElement.value;
     const selectedColor = colorElement.value;
     const selectedQuantity = parseInt(numberElement.value);
@@ -130,9 +131,10 @@ function addToCart(product) {
         selectedQuantity
       );
     }
-
+    localStorage.setItem ('cart', JSON.stringify(products))
   }
 }
+
 
 
 // Initialization function to set up the page
@@ -144,10 +146,7 @@ async function init() {
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');
   addToCartButton.addEventListener('click', addToCart(productItem));
-  console.log(products)
+
 }
 
 init()
-
-
-
