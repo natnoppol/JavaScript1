@@ -14,26 +14,28 @@ const query = () => {
 }
 
 // Function to add a new product to the cart
-function addProductToCart(id, title, price, color, size, quantity) {
+function addProductToCart(id, image,description, title, price, color, size, quantity) {
   products.push({
     id,
+    image,
+    description,
     title,
     price,
     color,
     size,
     quantity
   });
-  
+
   // Update the content of the <span> element to the length of the cart array
   const countCartItem = document.getElementById('countCartItems');
   countCartItem.textContent = products.length;
-  console.log(countCartItem)
+
 }
 
 // Function to fetch product data by ID
 async function fetchProductById(id) {
   const res = await fetch(`https://api.noroff.dev/api/v1/rainy-days/${id}`);
-  
+
   return res.json();
 }
 
@@ -105,6 +107,7 @@ function addToCart(product) {
     const selectElement = document.getElementById('mySelect');
     const colorElement = document.getElementById('mySelectColor');
     const numberElement = document.getElementById('mySelectNumber');
+    
 
     const selectedSize = selectElement.value;
     const selectedColor = colorElement.value;
@@ -124,6 +127,8 @@ function addToCart(product) {
       // If not, add the product to the cart
       addProductToCart(
         productId,
+        product.image,
+        product.description,
         product.title,
         product.price,
         selectedColor,
@@ -131,7 +136,7 @@ function addToCart(product) {
         selectedQuantity
       );
     }
-    localStorage.setItem ('cart', JSON.stringify(products))
+    localStorage.setItem('cart', JSON.stringify(products))
   }
 }
 
@@ -142,6 +147,7 @@ async function init() {
   const id = query();
   const productItem = await fetchProductById(id);
   renderProduct(productItem);
+  console.log(productItem)
 
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');

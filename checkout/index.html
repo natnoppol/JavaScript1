@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./checkout.css">
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <script src="/js/product.js"></script>
-
+    <script src="/js/checkout.js"></script>
     <title>Checkout page</title>
   </head>
 
@@ -45,63 +43,41 @@
               onclick="hideMenu()"></i></div>
           <div class="logo-991"><i class="fa-solid fa-shirt"></i> Outdoor
             Clothing</div>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="product.html">Product</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
-          <li><a href="confirmation.html">confirmation</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/product/index.html">Product</a></li>
+            <li><a href="/checkout/index.html">Checkout</a></li>
+            <li><a href="/checkout/confirmation/index.html">confirmation</a></li>
         </ul>
+        <div class="cart-container">
+          <div class="icon-cart">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2"
+                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.3L19 7H7.3" />
+            </svg>
+            <span id="countCartItems">0</span>
+          </div>
+        </div>
       </header>
 
       <body>
 
-        <div class="checkout-section">
-          <div class="checkout-list">
-            <p class="section-heading">Your cart</p>
-            <div class="cart">
-              <!-----------USE THIS HTML IN CHECKOUT.JS ----------->
-              <!-- <img src="/photo/empty-cart.png" class="empty-img" alt> -->
-              <div id class="sm-product">
-              <img src="/photo/4f0ac3e0-visual_studio_code.png" alt>
-              <div class="sm-text">
-                <p class="sm-product-name">BRAND</p>
-                <p class="sm-des">Lorem ipsum dolor sit amet. </p>
-              </div>
-              <div class="item-counter">
-                <button class="counter-btn decrement">-</button>
-                <p class="item-count">1</p>
-                <button class="counter-btn increment">+</button>
-              </div>
-              <p class="sm-price">NOK.</p>
-              <button class="sm-delete-btn"><img src="/photo/close.png"
-                  alt></button>
-            </div>
+        <div id="dataContainer"></div>
+
+        <div class="end">
+          <div class="wrapper">
+            <p>Design by - Natnoppol Pansantia</p>
+
+            <ul>
+              <li><a href>Home</a></li>
+              <li><a href>About Us</a></li>
+              <li><a href>Privacy Policy</a></li>
+              <li><a href>Contact Us</a></li>
+            </ul>
           </div>
         </div>
-        <div class="order-summary">
-          <div class="order-box">
-            <p class="text">your total bill</p>
-            <h1 class="bill">NOK.</h1>
-            <a href="/checkout/confirmation/index.html"
-              class="checkout-btn">Checkout</a>
-          </div>
-        </div>
-      </div>
 
-      <div id="data-container"></div>
-
-      <div class="end">
-        <div class="wrapper">
-          <p>Design by - Natnoppol Pansantia</p>
-
-          <ul>
-            <li><a href>Home</a></li>
-            <li><a href>About Us</a></li>
-            <li><a href>Privacy Policy</a></li>
-            <li><a href>Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-
-    </body>
-
-  </html>
+      </body>
+    </html>

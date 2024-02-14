@@ -34,14 +34,14 @@
     position: relative;
     margin-bottom: 20px;
 }
-.cart .sm-product:last-child{
-    margin-bottom: 0;
-}
-.sm-product-img{
+.sm-product img{
     height: 100px;
     width: 100px;
     object-fit: cover;
     border-radius: 5px;
+}
+.cart .sm-product:last-child{
+    margin-bottom: 0;
 }
 .sm-text{
     width: 50%;

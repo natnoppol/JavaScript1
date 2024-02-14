@@ -1,41 +1,3 @@
-const dataContainer = document.getElementById("data-container-cloth");
-const searchApi = ``;
-
-window.addEventListener("scroll", function () {
-    var header = this.document.querySelector("header");
-    header.classList.toggle("sticky", window.scrollY > 50)
-})
-
-var navBar = document.getElementById("navBar")
-
-function showMenu() {
-    navBar.style.left = "-15px";
-}
-
-function hideMenu() {
-    navBar.style.left = "-300px";
-}
-
-
-
-
-
-const cart = () => {
-    let iconCart = document.querySelector('.icon-cart');
-    let closeBtn = document.querySelector('cartTab .close');
-    let body = document.querySelector('body');
-
-    iconCart.addEventListener('click', () => {
-        body.classList.toggle('activeTabCart')
-    })
-    closeBtn.addEventListener('click', () => {
-        body.classList.toggle('activeTabCart');
-    })
-}
-export default cart;
-
-
-
 const getRainyday = async () => {
     const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
     
@@ -66,9 +28,25 @@ const el = async () => {
     contHome.innerHTML = productItem.join('')
 }
 
-
-
 el()
+
+const dataContainer = document.getElementById("data-container-cloth");
+const searchApi = ``;
+
+window.addEventListener("scroll", function () {
+    var header = this.document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 50)
+})
+
+var navBar = document.getElementById("navBar")
+
+function showMenu() {
+    navBar.style.left = "-15px";
+}
+
+function hideMenu() {
+    navBar.style.left = "-300px";
+}
 
 
 // const el = document.createElement('div');
@@ -92,3 +70,19 @@ el()
 // productLink.appendChild(imageElement);
 // productLink.appendChild(priceElement);
 // dataContainer.appendChild(el);
+
+// const cart = () => {
+//     let iconCart = document.querySelector('.icon-cart');
+//     let closeBtn = document.querySelector('cartTab .close');
+//     let body = document.querySelector('body');
+
+//     iconCart.addEventListener('click', () => {
+//         body.classList.toggle('activeTabCart')
+//     })
+//     closeBtn.addEventListener('click', () => {
+//         body.classList.toggle('activeTabCart');
+//     })
+// }
+// export default cart;
+
+
