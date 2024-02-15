@@ -1,5 +1,6 @@
 :root{
   --gray: rgb(70, 69, 69);
+  --font-size: 1rem;
 }
 
 *{

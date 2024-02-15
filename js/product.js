@@ -147,7 +147,7 @@ async function init() {
   const id = query();
   const productItem = await fetchProductById(id);
   renderProduct(productItem);
-  console.log(productItem)
+
 
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');

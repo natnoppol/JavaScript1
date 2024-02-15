@@ -27,13 +27,14 @@ function renderCart(item) {
                     <p class="sm-product-name">${item.title}</p>
                     <p class="sm-des">${item.description}</p>
                   </div>
-                  <div class="item-counter">
-                    <button class="counter-btn decrement">-</button>
-                    <p class="item-count">1</p>
-                    <button class="counter-btn increment">+</button>
+                  <div class="item-con">
+                    <div class="item-col">${item.color}</div>
+                    <div class="item-size">${item.size}</div>
+                    <div class="item-quantity">${item.quantity}</div>
                   </div>
                   <p class="sm-price">${item.price} NOK.</p>
-                  <button class="sm-delete-btn"> <img src="/photo/close.png" alt=""></button>
+                  <button id="smDeleteButton" class="sm-delete-btn" data-product-id="${item.id}"> 
+                  <img src="/photo/close.png" alt=""></button>
                 </div>
               </div>
             </div>
@@ -50,18 +51,35 @@ function renderCart(item) {
 
   )
   dataCon.innerHTML = productItem.join('')
-
-  console.log(1, dataCon);
-
 }
 
-
-
-
-// ใช้ เพื่อรอให้ หน้าเว็บโหลดเสร็จสมบูรณ์ ก่อนที่จะเรียกใช้ฟังก์ชัน renderCart()
+// Use when html loaded  before use function renderCart()
 document.addEventListener('DOMContentLoaded', () => {
   renderCart(parsedData)
+
+  // function deleteProduct() when click on delete button
+  const deleteButton = document.getElementById('smDeleteButton');
+  deleteButton.addEventListener('click', function () {
+    const productId = this.dataset.productId;
+    deleteProduct(productId);
+
+  });
 })
+
+function deleteProduct(productId) {
+  const index = parsedData.findIndex(product => product.id === productId)
+  if (index !== -1) {
+    parsedData.splice(index, 1);
+    renderCart(parsedData);
+
+  } else {
+
+  }
+}
+
+localStorage.clear();
+
+
 
 
 
