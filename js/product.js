@@ -1,20 +1,34 @@
-const products = [];
-
-
-
-// Select the <span> element
-
+let products = [];
+if (isLocalStorageExist()) {
+  products = JSON.parse(localStorage.getItem('cart'));
+}
 
 // Function to extract the ID from the URL query string
 const query = () => {
-  const qstr = window.location.search
-  const url = new URLSearchParams(qstr)
-  const id = url.get("id");
-  return id
+  const qstr = window.location.search;
+  const url = new URLSearchParams(qstr);
+  const id = url.get('id');
+  return id;
+};
+
+// Check if there is any items in localStorage
+function isLocalStorageExist() {
+  const cartInLocalStorage = JSON.parse(localStorage.getItem('cart'));
+  if (!cartInLocalStorage) return false;
+  if (cartInLocalStorage.length > 0) return true;
 }
 
 // Function to add a new product to the cart
-function addProductToCart(id, image,description, title, price, color, size, quantity) {
+function addProductToCart(
+  id,
+  image,
+  description,
+  title,
+  price,
+  color,
+  size,
+  quantity
+) {
   products.push({
     id,
     image,
@@ -23,13 +37,13 @@ function addProductToCart(id, image,description, title, price, color, size, quan
     price,
     color,
     size,
-    quantity
+    quantity,
   });
+}
 
-  // Update the content of the <span> element to the length of the cart array
+function updateCartAmount() {
   const countCartItem = document.getElementById('countCartItems');
   countCartItem.textContent = products.length;
-
 }
 
 // Function to fetch product data by ID
@@ -38,7 +52,6 @@ async function fetchProductById(id) {
 
   return res.json();
 }
-
 
 // Function to render product details in the HTML
 function renderProduct(item) {
@@ -52,7 +65,7 @@ function renderProduct(item) {
     <h3>${item.price} NOK.</h3>
     <select id="mySelect">
       <option>Select Size</option>
-      ${item.sizes.map(size => `<option>${size}</option>`)}
+      ${item.sizes.map((size) => `<option>${size}</option>`)}
     </select>
     <select id="mySelectColor">
       <option>Color</option>
@@ -63,9 +76,8 @@ function renderProduct(item) {
     <h4>Product Detail</h4>
     <span>${item.description}</span>
     <br>
-  </div>`
+  </div>`;
   productContainer.innerHTML = render;
-
 }
 // Function to check if a product with given ID, color, and size is already in the cart
 // Loop through each product in the cart
@@ -107,7 +119,6 @@ function addToCart(product) {
     const selectElement = document.getElementById('mySelect');
     const colorElement = document.getElementById('mySelectColor');
     const numberElement = document.getElementById('mySelectNumber');
-    
 
     const selectedSize = selectElement.value;
     const selectedColor = colorElement.value;
@@ -125,6 +136,7 @@ function addToCart(product) {
       );
     } else {
       // If not, add the product to the cart
+
       addProductToCart(
         productId,
         product.image,
@@ -136,11 +148,11 @@ function addToCart(product) {
         selectedQuantity
       );
     }
-    localStorage.setItem('cart', JSON.stringify(products))
-  }
+    localStorage.setItem('cart', JSON.stringify(products));
+    // Update the content of the <span> element to the length of the cart array
+    updateCartAmount();
+  };
 }
-
-
 
 // Initialization function to set up the page
 async function init() {
@@ -148,11 +160,9 @@ async function init() {
   const productItem = await fetchProductById(id);
   renderProduct(productItem);
 
-
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');
   addToCartButton.addEventListener('click', addToCart(productItem));
-
 }
 
-init()
+init();

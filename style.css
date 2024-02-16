@@ -1,9 +1,9 @@
-:root{
+:root {
   --gray: rgb(70, 69, 69);
   --font-size: 1rem;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,46 +13,45 @@
   transition: 0.5s;
 }
 
-body{
+body {
   background-color: #ebe9e9;
 }
 
-.wrapper{
+.wrapper {
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
   /* border: 1px solid red; */
 }
 
-p{
+p {
   color: var(--gray);
   font-size: 15px;
 }
-svg{
+svg {
   width: 30px;
 }
-button{
+button {
   cursor: pointer;
 }
 
-
-h2{
+h2 {
   font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
   color: white;
 }
-i{
+i {
   cursor: pointer;
 }
 
 /* -----------This css is over navbar----------- */
-.navbar-social{
+.navbar-social {
   background-color: black;
   padding: 7px;
 }
 
-.navbar-social .wrapper{
+.navbar-social .wrapper {
   display: flex;
   justify-content: space-between;
   font-size: 13px;
@@ -70,14 +69,14 @@ i{
 }
 
 /*----------- NAVIGATION BAR-------------- */
-header{
+header {
   background-color: white;
   padding: 15px;
   width: 100%;
 }
 
 #bars,
-#times{
+#times {
   display: none;
 }
 
@@ -87,21 +86,21 @@ header .wrappe {
   position: relative;
 }
 
-header .wrapper .logo{
+header .wrapper .logo {
   font-size: 25px;
   color: black;
   font-weight: 800;
 }
 
-header .wrapper .logo i{
+header .wrapper .logo i {
   color: orangered;
 }
 
-header .wrapper .navbar-primary{
+header .wrapper .navbar-primary {
   display: inline-flex;
 }
 
-header .wrapper .navbar-primary li a{
+header .wrapper .navbar-primary li a {
   font-size: 14px;
   color: black;
   font-weight: 600;
@@ -109,43 +108,43 @@ header .wrapper .navbar-primary li a{
   text-transform: uppercase;
 }
 
-.logo-991{
+.logo-991 {
   display: none;
 }
 
 header .wrapper .navbar-primary li a:hover,
 .navbar-social .wrapper a:hover,
-.navbar-social .wrapper a i:hover{
+.navbar-social .wrapper a i:hover {
   color: orangered;
   transition: all 0.1s;
 }
 
-header .search{
+header .search {
   background-color: #eeecec;
   border-radius: 5px;
 }
-header form{
+header form {
   display: flex;
   align-items: center;
 }
-.cart-container{
-  width: 900px;
-  max-width: 90vw;
+.cart-container {
+  display: flex;
+  justify-content: flex-end;
   margin: auto;
   text-align: center;
   padding-top: 10px;
   transition: 0.5s;
 }
-.cart-header{
+.cart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
 }
-.icon-cart{
-  position: relative;
+.icon-cart {
+  position: absolute;
 }
-.icon-cart span{
+.icon-cart span {
   background-color: red;
   position: absolute;
   top: 50%;
@@ -158,10 +157,10 @@ header form{
   justify-content: center;
   align-items: center;
 }
-.title{
+.title {
   font-size: xx-large;
 }
-.cartTab{
+.cartTab {
   background-color: #353432;
   color: #eee;
   width: 400px;
@@ -173,77 +172,76 @@ header form{
   display: grid;
   grid-template-rows: 70px 1fr 70px;
 }
-.cartTab h1{
+.cartTab h1 {
   padding: 20px;
   margin: 0;
   font-weight: 300;
 }
-.cartTab .btn{
+.cartTab .btn {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.cartTab .btn button{
+.cartTab .btn button {
   background-color: orange;
   border: none;
   font-family: sans-serif;
   font-weight: 500;
 }
-.cartTab .btn button.close{
+.cartTab .btn button.close {
   background-color: #eee;
 }
-.cartTab .listCart{
+.cartTab .listCart {
   overflow: auto;
 }
-.cartTab .listCart::-webkit-scrollbar{
+.cartTab .listCart::-webkit-scrollbar {
   width: 0;
 }
-.cartTab{
+.cartTab {
   right: -400px;
   transition: 0.5s;
 }
-body.activeTabCart .cartTab{
+body.activeTabCart .cartTab {
   right: 0;
 }
-body.activeTabCart .cart-container{
+body.activeTabCart .cart-container {
   transform: translateX(-250px);
 }
 /* ------------THIS CSS CODE DOWN BELOW IS NOT DONE AND SOME NOT USE------------------ */
-li{
+li {
   list-style: none;
 }
 
-.site-header{
+.site-header {
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 1em;
 }
 
-
-.site-header > div{
+.site-header > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
 
-.site-header > ul{
+.site-header > ul {
   display: block;
   list-style: none;
 }
 
-.site-header li{
+.site-header li {
   list-style: none;
   margin: 1em;
   font-size: 18px;
 }
 
-.site-header img{
+.site-header img {
   max-width: 100%;
   width: unset;
 }
 
-.site-header input{
+.site-header input {
   border-radius: 7px;
   height: 1.5em;
   width: 30em;
@@ -251,76 +249,73 @@ li{
 
 /* buttom icon*/
 
-.icon{
+.icon {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
   text-align: center;
 }
 
-.icon > div{
+.icon > div {
   display: flex;
   flex-direction: row;
   gap: 1em;
   margin: 1em;
 }
 
-
-
-details > summary{
+details > summary {
   border: 1px solid black;
-  background-color: #8C92AC;
+  background-color: #8c92ac;
   list-style: none;
   cursor: pointer;
   text-align: left;
 }
 
-.accordion{
+.accordion {
   border: 1px solid rgb(255, 0, 0);
   margin: 1em;
 }
 
-.info{
+.info {
   display: none;
   gap: 2em;
   margin: 2em;
 }
 
-.info ul{
+.info ul {
   list-style: none;
 }
 
-.info li{
-  margin-top: .5em;
+.info li {
+  margin-top: 0.5em;
 }
-
-
-
 
 /* --------------This css is bottom of index.html------------------- */
-.end{
+.end {
   background-color: rgb(5, 5, 5);
 }
-.end .wrapper{
+.end .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 10px;
 }
-.end .wrapper p{color: white;}
-.end .wrapper ul{
+.end .wrapper p {
+  color: white;
+}
+.end .wrapper ul {
   display: flex;
 }
-.end .wrapper ul li a{
+.end .wrapper ul li a {
   margin-left: 10px;
   color: white;
   font-size: 14px;
 }
 
 @media (max-width: 991px) {
-  .navbar-social{
+  .navbar-social {
     display: none;
   }
-  #bars{
+  #bars {
     display: block;
     font-size: 20px;
     margin-right: 20px;
@@ -328,11 +323,11 @@ details > summary{
   }
 
   .bars:hover,
-  .times:hover{
+  .times:hover {
     color: orangered;
     cursor: pointer;
   }
-  header .navbar-primary{
+  header .navbar-primary {
     position: absolute;
     width: 280px;
     height: 150vh;
@@ -345,15 +340,15 @@ details > summary{
     opacity: 1;
     /* visibility: hidden; */
   }
-  header .wrapper .navbar-primary{
+  header .wrapper .navbar-primary {
     display: block;
   }
 
-  header .wrapper .navbar-primary li{
+  header .wrapper .navbar-primary li {
     margin-top: 25px;
   }
 
-  .logo-991{
+  .logo-991 {
     display: block;
     border-bottom: 1px solid #cccccc;
     padding: 17px;
@@ -363,12 +358,12 @@ details > summary{
     font-weight: 800;
   }
 
-  .logo-991 i{
+  .logo-991 i {
     color: orangered;
     margin: 0 10px;
   }
 
-  #times{
+  #times {
     display: block;
     position: absolute;
     top: 24px;
@@ -377,46 +372,44 @@ details > summary{
     font-weight: 100;
     cursor: pointer;
   }
-  .icon{
+  .icon {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media(max-width:880px){
-
-.end .wrapper{
-  display: flex;
- flex-direction: column;
-}
-.end .wrapper ul{margin-top: 20px; order: 1;}
-
+@media (max-width: 880px) {
+  .end .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .end .wrapper ul {
+    margin-top: 20px;
+    order: 1;
+  }
 }
 
 @media (min-width: 576px) {
-
-  .site-header > div{
+  .site-header > div {
     flex-direction: row;
   }
 
-  .site-header li{
+  .site-header li {
     display: inline;
   }
 
-  .icon{
+  .icon {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .accordion{
+  .accordion {
     display: none;
   }
 
-  .info{
+  .info {
     display: flex;
   }
 
-  .fullscreen{
+  .fullscreen {
     display: flex;
   }
-
-
 }
