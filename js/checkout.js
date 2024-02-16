@@ -97,9 +97,9 @@ function deleteHandler() {
     const productId = event.target.dataset.productId;
     const productSize = event.target.dataset.productSize;
     const productColor = event.target.dataset.productColor;
-    if (productId) 
+    if (productId){}
     // Call
-    deleteProduct (productId, productSize, productColor);
+    deleteProduct (productId, productSize, productColor)
   });
 }
 
