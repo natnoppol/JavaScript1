@@ -12,76 +12,100 @@ function findDataLocalStorage(data) {
 }
 
 
-function renderCart(item) {
+function renderCart() {
   const dataCon = document.querySelector('#dataContainer');
-  const productItem = parsedData.map(item =>
-
-    `
-          <div class="checkout-section">
-            <div class="checkout-list">
-              <p class="section-heading">Your cart</p>
-              <div class="cart">
-                <div class="sm-product">
-                  <img src="${item.image}"></img>
-                  <div class="sm-text">
-                    <p class="sm-product-name">${item.title}</p>
-                    <p class="sm-des">${item.description}</p>
-                  </div>
-                  <div class="item-con">
-                    <div class="item-col">${item.color}</div>
-                    <div class="item-size">${item.size}</div>
-                    <div class="item-quantity">${item.quantity}</div>
-                  </div>
-                  <p class="sm-price">${item.price} NOK.</p>
-                  <button id="smDeleteButton" class="sm-delete-btn" data-product-id="${item.id}"> 
-                  <img src="/photo/close.png" alt=""></button>
-                </div>
-              </div>
-            </div>
-            <div class="order-summary">
-              <div class="order-box">
-                <p class="text">your total bill</p>
-                <h1 class="bill">${item.price} NOK.</h1>
-                <a href="/checkout/confirmation/index.html" class="checkout-btn">Checkout</a>
-              </div>
-            </div>
+  if (parsedData) {
+    const productItem = parsedData.map((item) => `
+      <div class = "sm-product">
+       <img src="${item.image}"></img>
+          <div class="sm-text">
+            <p class="sm-product-name">${item.title}</p>
+            <p class="sm-des">${item.description}</p>
+      </div>
+      <div class="item-con">
+            <div class="item-col">${item.color}</div>
+            <div class="item-size">${item.size}</div>
+            <div class="item-quantity">${item.quantity}</div>
           </div>
-   
-    `
+          <p class="sm-price">${item.price} NOK.</p>
+          <button class="sm-delete-btn" 
+              data-product-id="${item.id}" 
+              data-product-size="${item.size}"     
+              data-product-color="${item.color}"> 
+            <img src="/photo/close.png" alt="" 
+              data-product-id="${item.id}" 
+              data-product-size="${item.size}" 
+              data-product-color="${item.color}"
+            />
+          </button>
+        </div>`);
+    dataCon.innerHTML = productItem.join('');
+  } else {
+    dataCon.innerHTML = 'You have no products in cart';
+  }
+  deleteHandler();
 
-  )
-  dataCon.innerHTML = productItem.join('')
 }
 
-// Use when html loaded  before use function renderCart()
-document.addEventListener('DOMContentLoaded', () => {
-  renderCart(parsedData)
+// (CALL) Use when html loaded  before use function renderCart()
+document.addEventListener('DOMContentLoaded', async () => {
+  if (parsedData.length > 0) {
+    renderCart(parsedData);
+  } else {
+    const dataCon = document.querySelector('#dataContainer');
+    dataCon.innerHTML = 'You have no products in cart';
+  }
+});
 
-  // function deleteProduct() when click on delete button
-  const deleteButton = document.getElementById('smDeleteButton');
-  deleteButton.addEventListener('click', function () {
-    const productId = this.dataset.productId;
-    deleteProduct(productId);
 
-  });
-})
-
-function deleteProduct(productId) {
-  const index = parsedData.findIndex(product => product.id === productId)
+// function deleteProduct() when click on delete button
+function deleteProduct(productId, productSize, productColor) {
+  // findIndex = find data in Array when not found = return -1 
+  const index = parsedData.findIndex(
+    (product) =>
+    product.id === productId &&
+    product.size === productSize &&
+    product.color === productColor
+  );
+  console.log(4, index)
+  // Delete data(index=position of item  in Array, 1 = quantity) 
   if (index !== -1) {
     parsedData.splice(index, 1);
     renderCart(parsedData);
-
+    //Convert data from object/array to string and store in localStorage
+    localStorage.setItem('cart'.JSON.stringify(parsedData));
   } else {
-
+    renderCart(parsedData);
   }
+
+  if (parsedData.length === 0) {
+    const dataCon = document.querySelector('#dataContainer');
+    dataCon.innerHTML = 'You have no products in cart';
+  }
+ 
+// delete and then update the number that show on cart icon 
+  updateCartAmount();
 }
 
-localStorage.clear();
 
 
+// function that manage when user click,-
+//delete item and then do another action that relate to action after delete item
 
+function deleteHandler() {
+  document.addEventListener('click', function (event) {
+    const productId = event.target.dataset.productId;
+    const productSize = event.target.dataset.productSize;
+    const productColor = event.target.dataset.productColor;
+    if (productId) 
+    // Call
+    deleteProduct (productId, productSize, productColor);
+  });
+}
 
-
-// add to Cart div 
-// <img src="/photo/empty-cart.png" class="empty-img" alt="">
+//update the number on cart relate to the item in the cart 
+function updateCartAmount() {
+  const countCartItem = document.getElementById('countCartItems');
+  const cartItemAmount = JSON.parse(localStorage.getItem('cart')) || [];
+  countCartItem.textContent = cartItemAmount.length;
+}

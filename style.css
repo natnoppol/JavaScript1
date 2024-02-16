@@ -1,9 +1,9 @@
-:root{
+:root {
   --gray: rgb(70, 69, 69);
   --font-size: 1rem;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,36 +13,39 @@
   transition: 0.5s;
 }
 
-body{
+body {
   background-color: #ebe9e9;
 }
 
-.wrapper{
+.wrapper {
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
   /* border: 1px solid red; */
 }
 
-p{
+p {
   color: var(--gray);
   font-size: 15px;
 }
-svg{
+
+svg {
   width: 30px;
 }
-button{
+
+button {
   cursor: pointer;
 }
 
 
-h2{
+h2 {
   font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
   color: white;
 }
-i{
+
+i {
   cursor: pointer;
 }
 
@@ -51,56 +54,46 @@ i{
   background-color: black;
   padding: 7px;
 }
-
 .navbar-social .wrapper{
   display: flex;
   justify-content: space-between;
   font-size: 13px;
   text-transform: capitalize;
 }
-
-.navbar-social .wrapper .navbar-web-left a {
+.navbar-social .wrapper .navbar-web-left a{
   color: white;
   margin-right: 12px;
 }
-
-.navbar-social .wrapper .navbar-web-right a i {
+.navbar-social .wrapper .navbar-web-right a i{
   color: white;
   margin-left: 12px;
 }
-
 /*----------- NAVIGATION BAR-------------- */
 header{
   background-color: white;
   padding: 15px;
   width: 100%;
 }
-
 #bars,
 #times{
   display: none;
 }
-
-header .wrappe {
+header .wrappe{
   display: flex;
   align-items: center;
   position: relative;
 }
-
 header .wrapper .logo{
   font-size: 25px;
   color: black;
   font-weight: 800;
 }
-
 header .wrapper .logo i{
   color: orangered;
 }
-
 header .wrapper .navbar-primary{
   display: inline-flex;
 }
-
 header .wrapper .navbar-primary li a{
   font-size: 14px;
   color: black;
@@ -108,29 +101,26 @@ header .wrapper .navbar-primary li a{
   margin-left: 25px;
   text-transform: uppercase;
 }
-
 .logo-991{
   display: none;
 }
-
 header .wrapper .navbar-primary li a:hover,
 .navbar-social .wrapper a:hover,
 .navbar-social .wrapper a i:hover{
   color: orangered;
   transition: all 0.1s;
 }
-
 header .search{
   background-color: #eeecec;
   border-radius: 5px;
 }
-header form{
+header form {
   display: flex;
   align-items: center;
 }
 .cart-container{
-  width: 900px;
-  max-width: 90vw;
+  display: flex;
+  justify-content: flex-end;
   margin: auto;
   text-align: center;
   padding-top: 10px;
@@ -143,7 +133,7 @@ header form{
   padding: 20px 0;
 }
 .icon-cart{
-  position: relative;
+  position: absolute;
 }
 .icon-cart span{
   background-color: red;
@@ -211,44 +201,36 @@ body.activeTabCart .cart-container{
 li{
   list-style: none;
 }
-
 .site-header{
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 1em;
 }
-
-
-.site-header > div{
+.site-header>div{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
-
-.site-header > ul{
+.site-header>ul{
   display: block;
   list-style: none;
 }
-
 .site-header li{
   list-style: none;
   margin: 1em;
   font-size: 18px;
 }
-
 .site-header img{
   max-width: 100%;
   width: unset;
 }
-
 .site-header input{
   border-radius: 7px;
   height: 1.5em;
   width: 30em;
 }
-
 /* buttom icon*/
 
 .icon{
@@ -256,45 +238,34 @@ li{
   grid-template-columns: repeat(1, 2fr);
   text-align: center;
 }
-
-.icon > div{
+.icon>div{
   display: flex;
   flex-direction: row;
   gap: 1em;
   margin: 1em;
 }
-
-
-
-details > summary{
+details>summary{
   border: 1px solid black;
   background-color: #8C92AC;
   list-style: none;
   cursor: pointer;
   text-align: left;
 }
-
 .accordion{
   border: 1px solid rgb(255, 0, 0);
   margin: 1em;
 }
-
 .info{
   display: none;
   gap: 2em;
   margin: 2em;
 }
-
 .info ul{
   list-style: none;
 }
-
 .info li{
   margin-top: .5em;
 }
-
-
-
 
 /* --------------This css is bottom of index.html------------------- */
 .end{
@@ -306,7 +277,9 @@ details > summary{
   align-items: center;
   padding: 20px 10px;
 }
-.end .wrapper p{color: white;}
+.end .wrapper p{
+  color: white;
+}
 .end .wrapper ul{
   display: flex;
 }
@@ -315,6 +288,8 @@ details > summary{
   color: white;
   font-size: 14px;
 }
+
+
 
 @media (max-width: 991px) {
   .navbar-social{
@@ -326,7 +301,6 @@ details > summary{
     margin-right: 20px;
     cursor: pointer;
   }
-
   .bars:hover,
   .times:hover{
     color: orangered;
@@ -348,11 +322,9 @@ details > summary{
   header .wrapper .navbar-primary{
     display: block;
   }
-
   header .wrapper .navbar-primary li{
     margin-top: 25px;
   }
-
   .logo-991{
     display: block;
     border-bottom: 1px solid #cccccc;
@@ -362,12 +334,10 @@ details > summary{
     color: black;
     font-weight: 800;
   }
-
   .logo-991 i{
     color: orangered;
     margin: 0 10px;
   }
-
   #times{
     display: block;
     position: absolute;
@@ -384,39 +354,34 @@ details > summary{
 
 @media(max-width:880px){
 
-.end .wrapper{
-  display: flex;
- flex-direction: column;
+  .end .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .end .wrapper ul {
+    margin-top: 20px;
+    order: 1;
+  }
 }
-.end .wrapper ul{margin-top: 20px; order: 1;}
 
-}
+@media (min-width: 576px){
 
-@media (min-width: 576px) {
-
-  .site-header > div{
+  .site-header>div{
     flex-direction: row;
   }
-
   .site-header li{
     display: inline;
   }
-
   .icon{
     grid-template-columns: repeat(2, 1fr);
   }
-
   .accordion{
     display: none;
   }
-
-  .info{
+  .info {
     display: flex;
   }
-
   .fullscreen{
     display: flex;
   }
-
-
 }

@@ -1,9 +1,7 @@
-const products = [];
-
-
-
-// Select the <span> element
-
+let products = [];
+if (isLocalStorageExist()){
+  products = JSON.parse(localStorage.getItem('cart'));
+}
 
 // Function to extract the ID from the URL query string
 const query = () => {
@@ -11,6 +9,13 @@ const query = () => {
   const url = new URLSearchParams(qstr)
   const id = url.get("id");
   return id
+}
+
+// Check if there is any items in localStorage
+function isLocalStorageExist(){
+  const cartInLocalStorage = JSON.parse(localStorage.getItem('cart'));
+  if (!cartInLocalStorage) return false;
+  if (cartInLocalStorage.length > 0 ) return true;  
 }
 
 // Function to add a new product to the cart
@@ -25,12 +30,12 @@ function addProductToCart(id, image,description, title, price, color, size, quan
     size,
     quantity
   });
-
-  // Update the content of the <span> element to the length of the cart array
-  const countCartItem = document.getElementById('countCartItems');
-  countCartItem.textContent = products.length;
-
 }
+
+  function updataCartAmount(){
+    const countCartItem = document.getElementById('countCartItems');
+    countCartItem.textContent = products.length;
+  }
 
 // Function to fetch product data by ID
 async function fetchProductById(id) {
@@ -38,7 +43,6 @@ async function fetchProductById(id) {
 
   return res.json();
 }
-
 
 // Function to render product details in the HTML
 function renderProduct(item) {
@@ -136,23 +140,20 @@ function addToCart(product) {
         selectedQuantity
       );
     }
-    localStorage.setItem('cart', JSON.stringify(products))
-  }
+    localStorage.setItem('cart', JSON.stringify(products));
+    updateCartAmount();
+  };
 }
-
-
 
 // Initialization function to set up the page
 async function init() {
   const id = query();
   const productItem = await fetchProductById(id);
   renderProduct(productItem);
-
-
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');
   addToCartButton.addEventListener('click', addToCart(productItem));
 
 }
 
-init()
+init();
