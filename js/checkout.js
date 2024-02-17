@@ -1,21 +1,21 @@
-const dataFromLocalStorage = localStorage.getItem('cart');
+//Get data from cart in script.js
+const dataFromLocalStorage = localStorage.getItem("cart");
+//convert to JSON object 
 const parsedData = JSON.parse(dataFromLocalStorage);
 
 if (dataFromLocalStorage !== null) {
   findDataLocalStorage(parsedData);
 } else {
-  console.log(1, "Found nothing");
 }
 
 function findDataLocalStorage(data) {
-  console.log(2, "Find something", data);
 }
 
-
 function renderCart() {
-  const dataCon = document.querySelector('#dataContainer');
+  const dataCon = document.querySelector("#dataContainer");
   if (parsedData) {
-    const productItem = parsedData.map((item) => `
+    const productItem = parsedData.map(
+      (item) => `
       <div class = "sm-product">
        <img src="${item.image}"></img>
           <div class="sm-text">
@@ -38,74 +38,70 @@ function renderCart() {
               data-product-color="${item.color}"
             />
           </button>
-        </div>`);
-    dataCon.innerHTML = productItem.join('');
+        </div>`
+    );
+    dataCon.innerHTML = productItem.join("");
   } else {
-    dataCon.innerHTML = 'You have no products in cart';
+    dataCon.innerHTML = "You have no products in cart";
   }
   deleteHandler();
-
 }
 
 // (CALL) Use when html loaded  before use function renderCart()
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   if (parsedData.length > 0) {
-    renderCart(parsedData);
+    renderCart();
   } else {
-    const dataCon = document.querySelector('#dataContainer');
-    dataCon.innerHTML = 'You have no products in cart';
+    const dataCon = document.querySelector("#dataContainer");
+    dataCon.innerHTML = "You have no products in cart";
   }
 });
 
-
 // function deleteProduct() when click on delete button
 function deleteProduct(productId, productSize, productColor) {
-  // findIndex = find data in Array when not found = return -1 
+  // findIndex = find data in Array when not found = return -1
   const index = parsedData.findIndex(
     (product) =>
-    product.id === productId &&
-    product.size === productSize &&
-    product.color === productColor
+      product.id === productId &&
+      product.size === productSize &&
+      product.color === productColor
   );
-  console.log(4, index)
-  // Delete data(index=position of item  in Array, 1 = quantity) 
+  // Delete data(index=position of item  in Array, 1 = quantity)
   if (index !== -1) {
     parsedData.splice(index, 1);
-    renderCart(parsedData);
+    renderCart();
     //Convert data from object/array to string and store in localStorage
-    localStorage.setItem('cart'.JSON.stringify(parsedData));
+    localStorage.setItem("cart".JSON.stringify(parsedData));
   } else {
-    renderCart(parsedData);
+    renderCart();
   }
 
   if (parsedData.length === 0) {
-    const dataCon = document.querySelector('#dataContainer');
-    dataCon.innerHTML = 'You have no products in cart';
+    const dataCon = document.querySelector("#dataContainer");
+    dataCon.innerHTML = "You have no products in cart";
   }
- 
-// delete and then update the number that show on cart icon 
+
+  // delete and then update the number that show on cart icon
   updateCartAmount();
 }
 
-
-
-// function that manage when user click,-
-//delete item and then do another action that relate to action after delete item
+// function that manage when user click,delete item and then do another action that relate to action after delete item
 
 function deleteHandler() {
-  document.addEventListener('click', function (event) {
+  document.addEventListener("click", function (event) {
     const productId = event.target.dataset.productId;
     const productSize = event.target.dataset.productSize;
     const productColor = event.target.dataset.productColor;
-    if (productId){}
+    if (productId) {
+    }
     // Call
-    deleteProduct (productId, productSize, productColor)
+    deleteProduct(productId, productSize, productColor);
   });
 }
 
-//update the number on cart relate to the item in the cart 
+//update the number on cart relate to the item in the cart
 function updateCartAmount() {
-  const countCartItem = document.getElementById('countCartItems');
-  const cartItemAmount = JSON.parse(localStorage.getItem('cart')) || [];
+  const countCartItem = document.getElementById("countCartItems");
+  const cartItemAmount = JSON.parse(localStorage.getItem("cart")) || [];
   countCartItem.textContent = cartItemAmount.length;
 }

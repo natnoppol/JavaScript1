@@ -1,15 +1,15 @@
+//Get API by useing fetch and return res.json object
 const getRainyday = async () => {
-    const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
-    
-    return res.json();
-}
-
+  const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
+  return res.json();
+};
+// function get data from function getRainyday and useing .map for loop innerHTML
 const el = async () => {
-    const data = await getRainyday()
-    const contHome = document.querySelector('#data-container-cloth')
-    const productItem = data.map(post =>
-
-        `
+  const data = await getRainyday();
+  const contHome = document.querySelector("#data-container-cloth");
+  const productItem = data.map(
+    (post) =>
+      `
          <a href="/product/index.html?id=${post.id}">
             <div class="product-wrapper">
                 <div class="product-item">
@@ -23,86 +23,12 @@ const el = async () => {
         </a>
        
         `
+  );
+  contHome.innerHTML = productItem.join("");
+};
 
-    )
-    contHome.innerHTML = productItem.join('')
-}
+// wait for HTML loaded and run function el() after
+document.addEventListener('DOMContentLoaded', async function(){
+    await el();
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import cart from "./js/script";
-// import products from "./js/product";
-
-
-// let app = document.getElementById('app');
-// let temporaryContent = document.getElementById('temporaryContent');
-
-// const loadTemplate = () => {
-//     fetch('/template.html')
-//         .then(response => response.text())
-//         .then(html => {
-//             app.innerHTML = html;
-//             let contentTab = document.getElementById('contentTab');
-//             contentTab.innerHTML = temporaryContent.innerHTML;
-//             temporaryContent.innerHTML = null;
-//             cart()
-//             initApp();
-//         })
-// }
-
-// loadTemplate();
-// const initApp = () => {
-//     let listProduct = document.querySelector('.listProduct');
-//     listProduct.innerHTML = null
-//     products.foreach (product=>{
-//         let newProduct = document.createElement('div');
-//         newProduct.classList.add('item');
-//         newProduct.innerHTML = 
-//         `
-//         <img src="${product.image}"/>
-//         <h2>${product.name}</h2>
-//         <div class="price">${product.price}</div>>
-//         `;
-//         listProduct.appendChild(newProduct)
-//     })
-// }

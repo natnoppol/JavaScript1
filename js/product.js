@@ -5,11 +5,11 @@ if (isLocalStorageExist()){
 
 // Function to extract the ID from the URL query string
 const query = () => {
-  const qstr = window.location.search
+  const qstr = window.location.search;
   const url = new URLSearchParams(qstr)
   const id = url.get("id");
-  return id
-}
+  return id;
+};
 
 // Check if there is any items in localStorage
 function isLocalStorageExist(){
@@ -19,16 +19,16 @@ function isLocalStorageExist(){
 }
 
 // Function to add a new product to the cart
-function addProductToCart(id, image,description, title, price, color, size, quantity) {
+function addProductToCart(productProp) {
   products.push({
-    id,
-    image,
-    description,
-    title,
-    price,
-    color,
-    size,
-    quantity
+    id: productProp.id,
+    image:productProp.image,
+    description:productProp.description,
+    title:productProp.title,
+    price:productProp.price,
+    color:productProp.color,
+    size:productProp.size,
+    quantity:productProp.quantity
   });
 }
 
@@ -67,21 +67,21 @@ function renderProduct(item) {
     <h4>Product Detail</h4>
     <span>${item.description}</span>
     <br>
-  </div>`
+  </div>`;
   productContainer.innerHTML = render;
 
 }
 // Function to check if a product with given ID, color, and size is already in the cart
 // Loop through each product in the cart
 function isProductInCart(productId, color, size) {
-  for (let i = 0; i < products.length; i++) {
+  for (const product of products) {
     // Check if the current product matches the provided ID, color, and size
-    if (
-      products[i].id === productId &&
-      products[i].color === color &&
-      products[i].size === size
-    ) {
-      return true; // If found, return true
+   if(
+      product.id === productId &&
+      product.color === color &&
+      product.size === size
+    ){
+      return true;
     }
   }
   return false; // If not found, return false
@@ -90,15 +90,15 @@ function isProductInCart(productId, color, size) {
 // Function to update quantity of an existing product in the cart
 function updateCartQuantity(productId, color, size, selectedQuantity) {
   // Loop through each product in the cart
-  for (let i = 0; i < products.length; i++) {
+  for (const product of products) {
     // Check if the current product matches the provided ID, color, and size
     if (
-      products[i].id === productId &&
-      products[i].color === color &&
-      products[i].size === size
+      product.id === productId &&
+      product.color === color &&
+      product.size === size
     ) {
       // If the product matches, update its quantity
-      products[i].quantity += selectedQuantity;
+      product.quantity += selectedQuantity;
       // Once updated, exit the loop
       break;
     }
@@ -107,7 +107,7 @@ function updateCartQuantity(productId, color, size, selectedQuantity) {
 
 // Function to add a product to the cart
 function addToCart(product) {
-  return async () => {
+  return () => {
     const selectElement = document.getElementById('mySelect');
     const colorElement = document.getElementById('mySelectColor');
     const numberElement = document.getElementById('mySelectNumber');
@@ -120,7 +120,7 @@ function addToCart(product) {
     const productId = product.id;
     // Check if the product with the same ID, color, and size is already in the cart
     if (isProductInCart(productId, selectedColor, selectedSize)) {
-      // If yes, update the quantity of the existing product
+      // If find the same product , update the quantity of the existing product
       updateCartQuantity(
         productId,
         selectedColor,
@@ -128,17 +128,16 @@ function addToCart(product) {
         selectedQuantity
       );
     } else {
-      // If not, add the product to the cart
-      addProductToCart(
-        productId,
-        product.image,
-        product.description,
-        product.title,
-        product.price,
-        selectedColor,
-        selectedSize,
-        selectedQuantity
-      );
+      // If find not , add new product to the cart
+      const productProps = {
+        // spread properties ...  
+        ...product,
+        id: productId,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: selectedQuantity,
+      };
+      addProductToCart(productProps);
     }
     localStorage.setItem('cart', JSON.stringify(products));
     updateCartAmount();
@@ -153,7 +152,6 @@ async function init() {
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');
   addToCartButton.addEventListener('click', addToCart(productItem));
-
 }
 
 init();
