@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <title> Outdoor clothing</title>
-
-    <link rel="stylesheet" href="/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <title>Outdoor clothing</title>
+    <link rel="stylesheet" href="/index.css" />
+    <script src="/index.js"></script>
   </head>
 
   <body>
     <div class="navbar-social">
       <div class="wrapper">
+        <!-- incase this section don't have proper link remove it -->
         <div class="navbar-web-left">
-          <a href>home</a>
-          <a href>About Us</a>
-          <a href>privacy policy</a>
-          <a href>Contact Us </a>
+          <a href="/index.html">Home</a>
+          <a href="#">About Us</a>
+          <a href="#">privacy policy</a>
+          <a href="#">Contact Us </a>
         </div>
+        <!-- end of incase -->
 
         <div class="navbar-web-right">
-          <a href><i class="fab fa-facebook"></i></a>
-          <a href><i class="fab fa-twitter"></i></a>
-          <a href><i class="fab fa-youtube"></i></a>
-          <a href><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
         </div>
       </div>
     </div>
@@ -33,85 +36,124 @@
     <!--------- NAVIGATION NAVBAR----- ------>
     <header>
       <div class="wrapper">
-        <div class="bars" id="bars"><i class="fas fa-bars"
-            onclick="showMenu()"></i></div>
-        <a href class="logo"><i class="fa-solid fa-shirt"></i> Outdoor
-          Clothing</a>
+        <div class="bars" id="bars">
+          <i class="fa fa-bars"></i>
+        </div>
+        <a href="/index.html" class="logo">
+          <i class="fa-solid fa-shirt"></i>Outdoor Clothing
+        </a>
         <ul class="navbar-primary" id="navBar">
-          <div class="times" id="times"><i class="fas fa-times"
-              onclick="hideMenu()"></i></div>
-          <div class="logo-991"><i class="fa-solid fa-shirt"></i> Outdoor
-            Clothing</div>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/product/index.html">Product</a></li>
-            <li><a href="/checkout/index.html">Checkout</a></li>
-            <li><a href="/checkout/confirmation/index.html">confirmation</a></li>
+          <div class="times" id="times">
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="logo-991">
+            <i class="fa-solid fa-shirt"></i> Outdoor Clothing
+          </div>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/product/index.html">Product</a></li>
+          <li><a href="/checkout/index.html">Checkout</a></li>
+          <li><a href="/checkout/confirmation/index.html">Confirmation</a></li>
         </ul>
         <div class="cart-container">
-          <div class="icon-cart">
-            <svg class="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="none" viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2"
-                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.3L19 7H7.3" />
-            </svg>
-            <span id="countCartItems">0</span>
-          </div>
+          <a href="/checkout/index.html">
+            <div class="icon-cart">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.3L19 7H7.3"
+                />
+              </svg>
+              <span id="countCartItems">0</span>
+            </div>
+          </a>
         </div>
-      </header>
-      
-
-    <header class="site-header">
-      <nav>
-        <ul>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Women</a></li>
-          <li><a href="#">Men</a></li>
-          <li><a href="#">Popular list</a></li>
-          <li><a href="#">Rea</a></li>
-        </ul>
-      </nav>
+      </div>
+      <div class="site-header">
+        <nav>
+          <ul>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Popular list</a></li>
+            <li><a href="#">Rea</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <div id="data-container-cloth"></div>
 
     <div class="icon">
       <div class="world">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-          fill="currentColor" class="bi bi-globe-americas"
-          viewBox="0 0 16 16">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-globe-americas"
+          viewBox="0 0 16 16"
+        >
           <path
-            d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+            d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"
+          />
         </svg>
         <h4>Free shipping and returns</h4>
       </div>
       <div class="aircraft">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
           fill="currentColor"
-          class="bi bi-airplane-engines" viewBox="0 0 16 16">
+          class="bi bi-airplane-engines"
+          viewBox="0 0 16 16"
+        >
           <path
-            d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0ZM7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1c.213 0 .458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7V3Z" />
+            d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0ZM7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1c.213 0 .458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7V3Z"
+          />
         </svg>
         <h4>Express Shipping</h4>
       </div>
       <div class="shield">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-          fill="currentColor" class="bi bi-shield-shaded"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M8 14.933a.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067v13.866zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-shield-shaded"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fillRule="evenodd"
+            d="M8 14.933a.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067v13.866zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+          />
         </svg>
         <h4>Secure payments</h4>
       </div>
       <div class="smile">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-          fill="currentColor" class="bi bi-emoji-smile"
-          viewBox="0 0 16 16">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="currentColor"
+          class="bi bi-emoji-smile"
+          viewBox="0 0 16 16"
+        >
           <path
-            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
           <path
-            d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z" />
+            d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"
+          />
         </svg>
         <h4>News every day</h4>
       </div>
@@ -172,14 +214,13 @@
         <p>Design by - Natnoppol Pansantia</p>
 
         <ul>
-          <li><a href>Home</a></li>
-          <li><a href>About Us</a></li>
-          <li><a href>Privacy Policy</a></li>
-          <li><a href>Contact Us</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
         </ul>
       </div>
     </div>
-    <script type="module" src="./js/script.js"></script>
+    <script src="/js/script.js"></script>
   </body>
-
 </html>
