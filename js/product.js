@@ -1,41 +1,41 @@
 let products = [];
-if (isLocalStorageExist()){
+if (isLocalStorageExist()) {
   products = JSON.parse(localStorage.getItem('cart'));
 }
 
 // Function to extract the ID from the URL query string
 const query = () => {
-  const qstr = window.location.search
-  const url = new URLSearchParams(qstr)
-  const id = url.get("id");
-  return id
-}
+  const qstr = window.location.search;
+  const url = new URLSearchParams(qstr);
+  const id = url.get('id');
+  return id;
+};
 
 // Check if there is any items in localStorage
-function isLocalStorageExist(){
+function isLocalStorageExist() {
   const cartInLocalStorage = JSON.parse(localStorage.getItem('cart'));
   if (!cartInLocalStorage) return false;
-  if (cartInLocalStorage.length > 0 ) return true;  
+  if (cartInLocalStorage.length > 0) return true;
 }
 
 // Function to add a new product to the cart
-function addProductToCart(id, image,description, title, price, color, size, quantity) {
+function addProductToCart(productProp) {
   products.push({
-    id,
-    image,
-    description,
-    title,
-    price,
-    color,
-    size,
-    quantity
+    id: productProp.id,
+    image: productProp.image,
+    description: productProp.description,
+    title: productProp.title,
+    price: productProp.price,
+    color: productProp.color,
+    size: productProp.size,
+    quantity: productProp.quantity,
   });
 }
 
-  function updataCartAmount(){
-    const countCartItem = document.getElementById('countCartItems');
-    countCartItem.textContent = products.length;
-  }
+function updateCartAmount() {
+  const countCartItem = document.getElementById('countCartItems');
+  countCartItem.textContent = products.length;
+}
 
 // Function to fetch product data by ID
 async function fetchProductById(id) {
@@ -56,7 +56,7 @@ function renderProduct(item) {
     <h3>${item.price} NOK.</h3>
     <select id="mySelect">
       <option>Select Size</option>
-      ${item.sizes.map(size => `<option>${size}</option>`)}
+      ${item.sizes.map((size) => `<option>${size}</option>`)}
     </select>
     <select id="mySelectColor">
       <option>Color</option>
@@ -67,22 +67,19 @@ function renderProduct(item) {
     <h4>Product Detail</h4>
     <span>${item.description}</span>
     <br>
-  </div>`
+  </div>`;
   productContainer.innerHTML = render;
-
 }
 // Function to check if a product with given ID, color, and size is already in the cart
 // Loop through each product in the cart
 function isProductInCart(productId, color, size) {
-  for (let i = 0; i < products.length; i++) {
-    // Check if the current product matches the provided ID, color, and size
-    if (
-      products[i].id === productId &&
-      products[i].color === color &&
-      products[i].size === size
-    ) {
-      return true; // If found, return true
-    }
+  // Check if the current product matches the provided ID, color, and size
+  for (const product of products) {
+    return (
+      product.id === productId &&
+      product.color === color &&
+      product.size === size
+    );
   }
   return false; // If not found, return false
 }
@@ -90,16 +87,13 @@ function isProductInCart(productId, color, size) {
 // Function to update quantity of an existing product in the cart
 function updateCartQuantity(productId, color, size, selectedQuantity) {
   // Loop through each product in the cart
-  for (let i = 0; i < products.length; i++) {
-    // Check if the current product matches the provided ID, color, and size
+  for (const product of products) {
     if (
-      products[i].id === productId &&
-      products[i].color === color &&
-      products[i].size === size
+      product.id === productId &&
+      product.color === color &&
+      product.size === size
     ) {
-      // If the product matches, update its quantity
-      products[i].quantity += selectedQuantity;
-      // Once updated, exit the loop
+      product.quantity += selectedQuantity;
       break;
     }
   }
@@ -107,11 +101,10 @@ function updateCartQuantity(productId, color, size, selectedQuantity) {
 
 // Function to add a product to the cart
 function addToCart(product) {
-  return async () => {
+  return () => {
     const selectElement = document.getElementById('mySelect');
     const colorElement = document.getElementById('mySelectColor');
     const numberElement = document.getElementById('mySelectNumber');
-    
 
     const selectedSize = selectElement.value;
     const selectedColor = colorElement.value;
@@ -129,16 +122,15 @@ function addToCart(product) {
       );
     } else {
       // If not, add the product to the cart
-      addProductToCart(
-        productId,
-        product.image,
-        product.description,
-        product.title,
-        product.price,
-        selectedColor,
-        selectedSize,
-        selectedQuantity
-      );
+      const productProps = {
+        ...product,
+        id: productId,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: selectedQuantity,
+      };
+
+      addProductToCart(productProps);
     }
     localStorage.setItem('cart', JSON.stringify(products));
     updateCartAmount();
@@ -153,7 +145,6 @@ async function init() {
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');
   addToCartButton.addEventListener('click', addToCart(productItem));
-
 }
 
 init();
