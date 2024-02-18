@@ -1,12 +1,8 @@
 const dataContainer = document.getElementById("data-container-cloth");
 const searchApi = ``;
 
-window.addEventListener("scroll", function () {
-  var header = this.document.querySelector("header");
-  header.classList.toggle("sticky", window.scrollY > 50);
-});
-
-var navBar = document.getElementById("navBar");
+const mediaQuery = window.matchMedia ('(max-width:768)')
+const navBar = document.getElementById("navBar");
 
 function showMenu() {
   const elem = document.querySelector(".fas-bars");
@@ -33,9 +29,18 @@ function updateCartAmount() {
 
 document.addEventListener("DOMContentLoaded", () => {
     // check the device size that have max-width: 768px run the function below 
-  if (MediaQuery) {
+  if (mediaQuery) {
     hideMenu();
     showMenu();
+
   }
   updateCartAmount();
 });
+
+
+
+// window.addEventListener("scroll", function () {
+//   var header = this.document.querySelector("header");
+//   header.classList.toggle("sticky", window.scrollY > 50);
+//   console.log('work');
+// });
