@@ -3,6 +3,7 @@ const dataFromLocalStorage = localStorage.getItem("cart");
 //convert to JSON object 
 const parsedData = JSON.parse(dataFromLocalStorage);
 
+
 if (dataFromLocalStorage !== null) {
   findDataLocalStorage(parsedData);
 } else {
@@ -49,8 +50,10 @@ function renderCart() {
 
 // (CALL) Use when html loaded  before use function renderCart()
 document.addEventListener("DOMContentLoaded", async () => {
+  // check if product still inside 
   if (parsedData.length > 0) {
     renderCart();
+    displayTotalPrice()
   } else {
     const dataCon = document.querySelector("#dataContainer");
     dataCon.innerHTML = "You have no products in cart";
@@ -93,9 +96,9 @@ function deleteHandler() {
     const productSize = event.target.dataset.productSize;
     const productColor = event.target.dataset.productColor;
     if (productId) {
+      // Call
+      deleteProduct(productId, productSize, productColor);
     }
-    // Call
-    deleteProduct(productId, productSize, productColor);
   });
 }
 
@@ -105,3 +108,21 @@ function updateCartAmount() {
   const cartItemAmount = JSON.parse(localStorage.getItem("cart")) || [];
   countCartItem.textContent = cartItemAmount.length;
 }
+
+function calculateTotalPrice () {
+  let total = 0; 
+ // product is 1 of object in array 
+  for(const product of parsedData){
+    // total = total + (price*quantity)
+    total += product.price*product.quantity; 
+  }
+  return total
+}
+function displayTotalPrice(){
+  const display = document.getElementById('totalBill');
+  const totalPrice = calculateTotalPrice()
+  // Template Literals ``
+  display.textContent = `${totalPrice} NOK.`;
+
+}
+
