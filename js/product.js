@@ -38,9 +38,9 @@ function addProductToCart(productProp) {
   }
 
 // Function to fetch product data by ID
+// send ID by using  =>` ` String + variable = concat 
 async function fetchProductById(id) {
   const res = await fetch(`https://api.noroff.dev/api/v1/rainy-days/${id}`);
-
   return res.json();
 }
 
@@ -145,13 +145,20 @@ function addToCart(product) {
 }
 
 // Initialization function to set up the page
-async function init() {
-  const id = query();
-  const productItem = await fetchProductById(id);
-  renderProduct(productItem);
+async function init(response) {
+  renderProduct(response); 
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');
   addToCartButton.addEventListener('click', addToCart(productItem));
 }
 
-init();
+
+document.addEventListener('DOMContentLoaded', async function(){
+  try{
+    const id = query(); 
+    const response = await  fetchProductById(id);
+    init(response);
+  }catch (error){
+    alert('Something wrong '+error.message);
+  }
+ })

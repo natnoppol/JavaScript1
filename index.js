@@ -1,11 +1,10 @@
 //Get API by useing fetch and return res.json object
-const getRainyday = async () => {
+const getRainyDay = async () => {
   const res = await fetch("https://api.noroff.dev/api/v1/rainy-days");
   return res.json();
 };
 // function get data from function getRainyday and useing .map for loop innerHTML
-const el = async () => {
-  const data = await getRainyday();
+const el = async (data) => {
   const contHome = document.querySelector("#data-container-cloth");
   const productItem = data.map(
     (post) =>
@@ -29,6 +28,13 @@ const el = async () => {
 
 // wait for HTML loaded and run function el() after
 document.addEventListener('DOMContentLoaded', async function(){
-    await el();
+  try{
+    const response = await getRainyDay()
+    el(response);
+  }
+    catch (error){
+      alert('Something wrong ' + error.message);
+    }
+
 });
 
