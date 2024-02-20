@@ -26,21 +26,18 @@ function updateCartAmount() {
   // Get number of cart item to update/display on cart icon 
   countCartItem.textContent = cartItemAmount.length;
 }
+function hideLoading (){
+  document.getElementById('hideLoading').style.display = 'none';
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     // check the device size that have max-width: 768px run the function below 
   if (mediaQuery) {
     hideMenu();
     showMenu();
-
   }
   updateCartAmount();
 });
 
 
 
-// window.addEventListener("scroll", function () {
-//   var header = this.document.querySelector("header");
-//   header.classList.toggle("sticky", window.scrollY > 50);
-//   console.log('work');
-// });

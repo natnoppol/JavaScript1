@@ -48,81 +48,83 @@ function renderCart() {
   deleteHandler();
 }
 
-// (CALL) Use when html loaded  before use function renderCart()
-document.addEventListener("DOMContentLoaded", async () => {
-  // check if product still inside 
-  if (parsedData.length > 0) {
-    renderCart();
-    displayTotalPrice()
-  } else {
-    const dataCon = document.querySelector("#dataContainer");
-    dataCon.innerHTML = "You have no products in cart";
-  }
-});
 
 // function deleteProduct() when click on delete button
 function deleteProduct(productId, productSize, productColor) {
   // findIndex = find data in Array when not found = return -1
   const index = parsedData.findIndex(
     (product) =>
-      product.id === productId &&
-      product.size === productSize &&
-      product.color === productColor
-  );
-  // Delete data(index=position of item  in Array, 1 = quantity)
-  if (index !== -1) {
-    parsedData.splice(index, 1);
-    renderCart();
-    //Convert data from object/array to string and store in localStorage
-    localStorage.setItem("cart".JSON.stringify(parsedData));
-  } else {
-    renderCart();
+    product.id === productId &&
+    product.size === productSize &&
+    product.color === productColor
+    );
+    // Delete data(index=position of item  in Array, 1 = quantity)
+    if (index !== -1) {
+      parsedData.splice(index, 1);
+      renderCart();
+      //Convert data from object/array to string and store in localStorage
+      localStorage.setItem("cart".JSON.stringify(parsedData));
+    } else {
+      renderCart();
+    }
+    
+    if (parsedData.length === 0) {
+      const dataCon = document.querySelector("#dataContainer");
+      dataCon.innerHTML = "You have no products in cart";
+    }
+    
+    // delete and then update the number that show on cart icon
+    updateCartAmount();
   }
-
-  if (parsedData.length === 0) {
-    const dataCon = document.querySelector("#dataContainer");
-    dataCon.innerHTML = "You have no products in cart";
+  
+  // function that manage when user click,delete item and then do another action that relate to action after delete item
+  
+  function deleteHandler() {
+    document.addEventListener("click", function (event) {
+      const productId = event.target.dataset.productId;
+      const productSize = event.target.dataset.productSize;
+      const productColor = event.target.dataset.productColor;
+      if (productId) {
+        // Call
+        deleteProduct(productId, productSize, productColor);
+      }
+    });
   }
-
-  // delete and then update the number that show on cart icon
-  updateCartAmount();
-}
-
-// function that manage when user click,delete item and then do another action that relate to action after delete item
-
-function deleteHandler() {
-  document.addEventListener("click", function (event) {
-    const productId = event.target.dataset.productId;
-    const productSize = event.target.dataset.productSize;
-    const productColor = event.target.dataset.productColor;
-    if (productId) {
-      // Call
-      deleteProduct(productId, productSize, productColor);
+  
+  //update the number on cart relate to the item in the cart
+  function updateCartAmount() {
+    const countCartItem = document.getElementById("countCartItems");
+    const cartItemAmount = JSON.parse(localStorage.getItem("cart")) || [];
+    countCartItem.textContent = cartItemAmount.length;
+  }
+  
+  function calculateTotalPrice () {
+    let total = 0; 
+    // product is 1 of object in array 
+    for(const product of parsedData){
+      // total = total + (price*quantity)
+      total += product.price*product.quantity; 
+    }
+    return total
+  }
+  function displayTotalPrice(){
+    const display = document.getElementById('totalBill');
+    const totalPrice = calculateTotalPrice()
+    // Template Literals ``
+    display.textContent = `${totalPrice} NOK.`;
+    
+  }
+  
+  // (CALL) Use when html loaded  before use function renderCart()
+  document.addEventListener("DOMContentLoaded", async () => {
+    // check if product still inside 
+    if (parsedData.length > 0) {
+      renderCart();
+      displayTotalPrice()
+      // hideLoading() can't fix yet
+    } else {
+      const dataCon = document.querySelector("#dataContainer");
+      dataCon.innerHTML = "You have no products in cart";
     }
   });
-}
-
-//update the number on cart relate to the item in the cart
-function updateCartAmount() {
-  const countCartItem = document.getElementById("countCartItems");
-  const cartItemAmount = JSON.parse(localStorage.getItem("cart")) || [];
-  countCartItem.textContent = cartItemAmount.length;
-}
-
-function calculateTotalPrice () {
-  let total = 0; 
- // product is 1 of object in array 
-  for(const product of parsedData){
-    // total = total + (price*quantity)
-    total += product.price*product.quantity; 
-  }
-  return total
-}
-function displayTotalPrice(){
-  const display = document.getElementById('totalBill');
-  const totalPrice = calculateTotalPrice()
-  // Template Literals ``
-  display.textContent = `${totalPrice} NOK.`;
-
-}
-
+  

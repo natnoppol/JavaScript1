@@ -146,6 +146,7 @@ function addToCart(product) {
 
 // Initialization function to set up the page
 async function init(response) {
+  hideLoading ()
   renderProduct(response); 
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');

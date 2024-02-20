@@ -29,12 +29,12 @@ const el = async (data) => {
 // wait for HTML loaded and run function el() after
 document.addEventListener('DOMContentLoaded', async function(){
   try{
+    hideLoading ()
     const response = await getRainyDay()
     el(response);
   }
-    catch (error){
+  catch (error){
       alert('Something wrong ' + error.message);
     }
-
 });
 
