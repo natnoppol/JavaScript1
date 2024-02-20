@@ -204,35 +204,10 @@ li{
   list-style: none;
 }
 .site-header{
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 1em;
+ 
 }
-.site-header>div{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-.site-header>ul{
-  display: block;
-  list-style: none;
-}
-.site-header li{
-  list-style: none;
-  margin: 1em;
-  font-size: 18px;
-}
-.site-header img{
-  max-width: 100%;
-  width: unset;
-}
-.site-header input{
-  border-radius: 7px;
-  height: 1.5em;
-  width: 30em;
-}
+
+
 /* buttom icon*/
 
 .icon{

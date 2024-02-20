@@ -20,21 +20,38 @@ const el = async (data) => {
                 </div>
             </div>
         </a>
-       
         `
   );
   contHome.innerHTML = productItem.join("");
 };
 
-// wait for HTML loaded and run function el() after
-document.addEventListener('DOMContentLoaded', async function(){
-  try{
-    hideLoading ()
-    const response = await getRainyDay()
-    el(response);
-  }
-  catch (error){
-      alert('Something wrong ' + error.message);
-    }
-});
+function renderGenderSelect(response) {
+  const filterData = document.getElementById("filter");
+  const genderList = getUniqueGender(response);
 
+  genderList.map((filter) => {
+    const option = document.createElement("option");
+    const node = document.createTextNode(filter);
+    option.appendChild(node);
+    option.value = filter;
+    filterData.appendChild(option);
+  });
+}
+function getUniqueGender(response) {
+  //{destructuring object}
+  const genderList = response.map(({ gender }) => gender);
+  const uniqueGender = [...new Set(genderList)];
+  return uniqueGender;
+}
+
+// wait for HTML loaded and run function el() after
+document.addEventListener("DOMContentLoaded", async function () {
+  try {
+    hideLoading();
+    const response = await getRainyDay();
+    el(response);
+    renderGenderSelect(response);
+  } catch (error) {
+    alert("Something wrong " + error.message);
+  }
+});
