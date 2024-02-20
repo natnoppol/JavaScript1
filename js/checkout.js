@@ -119,9 +119,9 @@ function deleteProduct(productId, productSize, productColor) {
   document.addEventListener("DOMContentLoaded", async () => {
     // check if product still inside 
     if (parsedData.length > 0) {
+      hideLoading() 
       renderCart();
       displayTotalPrice()
-      // hideLoading() can't fix yet
     } else {
       const dataCon = document.querySelector("#dataContainer");
       dataCon.innerHTML = "You have no products in cart";

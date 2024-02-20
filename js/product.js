@@ -150,7 +150,7 @@ async function init(response) {
   renderProduct(response); 
   // Add event listener to 'Add To Cart' button
   const addToCartButton = document.getElementById('addToCart');
-  addToCartButton.addEventListener('click', addToCart(productItem));
+  addToCartButton.addEventListener('click', addToCart(response));
 }
 
 
