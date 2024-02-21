@@ -1,7 +1,7 @@
 
 # Welcome to JavaScript project 2024 (Frontend only)
 
-## It is a program written by Javascript to receive commands and respond. Made by Natnoppol Pansantia, this project was created for learning Javascript.  💖 This website is for those who are new to using html css javascript to create a website. and supports responsiveness on all screen sizes
+## It is a program written by Javascript to receive commands and respond. Made by Natnoppol Pansantia, this project was created for learning Javascript.  💖 This website is for those who are new to using html css javascript to create a website.
 
 
 ## Table of Contents
@@ -23,12 +23,8 @@
 ```
 bash
 git clone https://github.com/natnoppol/JavaScript1.git
-cd JavaScript
-pip install requirements.txt
-```
 
-## How to use
-``` bash Javascript ```
+```
 
 ## Credit
 Natnoppol Pansantia - Coding Consultant (Software Developer)

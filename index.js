@@ -24,7 +24,7 @@ const el = async (data) => {
   );
   contHome.innerHTML = productItem.join("");
 };
-
+//show select element on html 
 function renderGenderSelect(response) {
   const filterData = document.getElementById("filter");
   const genderList = getUniqueGender(response);
@@ -37,12 +37,50 @@ function renderGenderSelect(response) {
     filterData.appendChild(option);
   });
 }
+//Get gender from object
 function getUniqueGender(response) {
   //{destructuring object}
   const genderList = response.map(({ gender }) => gender);
   const uniqueGender = [...new Set(genderList)];
   return uniqueGender;
 }
+
+//save Value femele and male  by click
+function handleChange(){
+  const filterData = document.getElementById("filter");
+  
+  filterData.addEventListener('change', (event) => {
+    const genderValue =  event.target.value; 
+    genderChangeHandler(genderValue);
+
+  }); 
+}
+
+
+//function on dropdown or selecting elements 
+async function genderChangeHandler(genderValue){
+  const products = await getRainyDay();
+  let filtered = null; 
+  if(genderValue ==='All')filtered = products
+  if (genderValue !=='All') filtered = await getProductByGender(genderValue);
+  
+  console.log(genderValue)
+
+  el(filtered);
+
+  console.log(filtered)
+}
+
+//filter products by user choose 
+async function getProductByGender(genderValue){
+  const products = await getRainyDay();
+  const filteredProductByGender = products.filter((product) => product.gender === genderValue)
+
+  console.log (genderValue)
+
+  return filteredProductByGender
+}
+
 
 // wait for HTML loaded and run function el() after
 document.addEventListener("DOMContentLoaded", async function () {
@@ -51,6 +89,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     const response = await getRainyDay();
     el(response);
     renderGenderSelect(response);
+
+    handleChange()
+
   } catch (error) {
     alert("Something wrong " + error.message);
   }
