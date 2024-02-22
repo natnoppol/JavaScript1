@@ -2,8 +2,7 @@
   --gray: rgb(70, 69, 69);
   --font-size: 1rem;
 }
-
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,43 +11,33 @@
   font-family: sans-serif;
   transition: 0.5s;
 }
-
-body {
+body{
   background-color: #ebe9e9;
 }
-
-.wrapper {
+.wrapper{
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
-  /* border: 1px solid red; */
 }
-
-p {
+p{
   color: var(--gray);
   font-size: 15px;
 }
-
-svg {
+svg{
   width: 30px;
 }
-
-button {
+button{
   cursor: pointer;
 }
-
-
-h2 {
+h2{
   font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
   color: white;
 }
-
-i {
+i{
   cursor: pointer;
 }
-
 
 
 /* -----------This css is over navbar----------- */

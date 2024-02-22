@@ -64,19 +64,15 @@ async function genderChangeHandler(genderValue){
   if(genderValue ==='All')filtered = products
   if (genderValue !=='All') filtered = await getProductByGender(genderValue);
   
-  console.log(genderValue)
 
   el(filtered);
 
-  console.log(filtered)
 }
 
 //filter products by user choose 
 async function getProductByGender(genderValue){
   const products = await getRainyDay();
   const filteredProductByGender = products.filter((product) => product.gender === genderValue)
-
-  console.log (genderValue)
 
   return filteredProductByGender
 }

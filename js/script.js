@@ -1,5 +1,5 @@
 const dataContainer = document.getElementById("data-container-cloth");
-const searchApi = ``;
+
 
 const mediaQuery = window.matchMedia ('(max-width:768)')
 const navBar = document.getElementById("navBar");
