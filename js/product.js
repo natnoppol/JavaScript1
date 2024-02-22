@@ -62,7 +62,7 @@ function renderProduct(item) {
       <option>Color</option>
       <option>${item.baseColor}</option>
     </select>
-    <input type="number" id="mySelectNumber" value="1">
+    <input type="number" min="1" id="mySelectNumber" value="1">
     <button id="addToCart" class="normal">Add To Cart</button>
     <h4>Product Detail</h4>
     <span>${item.description}</span>

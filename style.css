@@ -1,6 +1,6 @@
 :root {
   --gray: rgb(70, 69, 69);
-  --font-size: 1rem;
+  --font-size: clamp(1rem,2.5vw,2rem);
 }
 *{
   margin: 0;
@@ -38,6 +38,10 @@ h2{
 i{
   cursor: pointer;
 }
+li{
+  list-style: none;
+}
+
 
 
 /* -----------This css is over navbar----------- */
@@ -101,11 +105,7 @@ header .wrapper .navbar-primary li a:hover,
   color: orangered;
   transition: all 0.1s;
 }
-header .search{
-  background-color: #eeecec;
-  border-radius: 5px;
-}
-header form {
+header form{
   display: flex;
   align-items: center;
 }
@@ -138,62 +138,6 @@ header form {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.title{
-  font-size: xx-large;
-}
-.cartTab{
-  background-color: #353432;
-  color: #eee;
-  width: 400px;
-  max-width: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: grid;
-  grid-template-rows: 70px 1fr 70px;
-}
-.cartTab h1{
-  padding: 20px;
-  margin: 0;
-  font-weight: 300;
-}
-.cartTab .btn{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-.cartTab .btn button{
-  background-color: orange;
-  border: none;
-  font-family: sans-serif;
-  font-weight: 500;
-}
-.cartTab .btn button.close{
-  background-color: #eee;
-}
-.cartTab .listCart{
-  overflow: auto;
-}
-.cartTab .listCart::-webkit-scrollbar{
-  width: 0;
-}
-.cartTab{
-  right: -400px;
-  transition: 0.5s;
-}
-body.activeTabCart .cartTab{
-  right: 0;
-}
-body.activeTabCart .cart-container{
-  transform: translateX(-250px);
-}
-/* ------------THIS CSS CODE DOWN BELOW IS NOT DONE AND SOME NOT USE------------------ */
-li{
-  list-style: none;
-}
-.site-header{
- 
 }
 
 
@@ -233,7 +177,7 @@ details>summary{
   margin-top: .5em;
 }
 
-/* --------------This css is bottom of index.html------------------- */
+/* --------------This css is bottom copyright------------------- */
 .end{
   background-color: rgb(5, 5, 5);
 }
@@ -283,7 +227,6 @@ details>summary{
     z-index: 1000;
     box-shadow: 1px 2px 5px 5px rgba(68, 68, 68, 0.1);
     opacity: 1;
-    /* visibility: hidden; */
   }
   header .wrapper .navbar-primary{
     display: block;
@@ -320,11 +263,11 @@ details>summary{
 
 @media(max-width:880px){
 
-  .end .wrapper {
+  .end .wrapper{
     display: flex;
     flex-direction: column;
   }
-  .end .wrapper ul {
+  .end .wrapper ul{
     margin-top: 20px;
     order: 1;
   }
@@ -332,12 +275,6 @@ details>summary{
 
 @media (min-width: 576px){
 
-  .site-header>div{
-    flex-direction: row;
-  }
-  .site-header li{
-    display: inline;
-  }
   .icon{
     grid-template-columns: repeat(2, 1fr);
   }
@@ -347,7 +284,5 @@ details>summary{
   .info {
     display: flex;
   }
-  .fullscreen{
-    display: flex;
-  }
+ 
 }

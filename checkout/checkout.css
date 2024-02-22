@@ -71,25 +71,8 @@
     text-transform: capitalize;
     margin-top: 10px;
 }
-.counter-brn,
-.item-count{
-    width: 30px;
-    height: 30px;
-}
-.counter-brn{
-    border: none;
-    background: #eee;
-    border: 1px solid rgb(216, 216, 216);
-    border-radius: 1px;
-    cursor: pointer;
-}
-.item-count{
-    text-align: center;
-    line-height: 30px;
-    background: #eee;
-}
 .sm-price{
-    font-size: 50px;
+    font-size: var(--font-size);
     font-weight: 500;
     color: black;
 }
@@ -143,7 +126,7 @@
     text-decoration: none;
 }
 .bill {
-    font-size: 60px;
+    font-size: var(--font-size);
     font-weight: 500;
     margin: 10px 0;
 }
